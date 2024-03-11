@@ -4,6 +4,10 @@ namespace Database\Seeders;
 
 // use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
+use App\Models\Pacient;
+use App\Models\Prueba;
+use App\Models\User;
+
 
 class DatabaseSeeder extends Seeder
 {
@@ -12,7 +16,18 @@ class DatabaseSeeder extends Seeder
      */
     public function run(): void
     {
-        // \App\Models\User::factory(10)->create();
+
+        $this->call(TamizajeSeeder::class);
+
+        User::factory(10)->create();
+
+        Pacient::factory(10)->create();
+
+        Prueba::factory(50)->create();
+
+
+
+        //
 
         // \App\Models\User::factory()->create([
         //     'name' => 'Test User',
