@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\PruebaController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -13,9 +14,10 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+// Route::get('/', function () {
+//     return view('welcome');
+// });
+Route::redirect('/', 'dashboard');
 
 Route::middleware([
     'auth:sanctum',
@@ -23,6 +25,8 @@ Route::middleware([
     'verified',
 ])->group(function () {
     Route::get('/dashboard', function () {
-        return view('dashboard');
+        return view('dashboard');               
     })->name('dashboard');
 });
+
+Route::get('/dashboard', [PruebaController::class, 'index'])->name('dashboard');
