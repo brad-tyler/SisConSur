@@ -2,9 +2,7 @@
 
 namespace App\Http\Controllers;
 
-use Illuminate\Http\Request;
 use \App\Models\Prueba;
-use Livewire\Component;
 
 class PruebaController extends Controller
 {
