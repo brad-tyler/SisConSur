@@ -9,7 +9,7 @@ class Tamizaje extends Model
 {
     use HasFactory;
 
-    public function Pruebas()
+    public function pruebas()
     {
         return $this->hasMany(Prueba::class);
     }

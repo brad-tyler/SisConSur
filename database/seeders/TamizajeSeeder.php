@@ -16,7 +16,7 @@ class TamizajeSeeder extends Seeder
     public function run(): void
     {
         //Crearemos cuatro tipos de tamizaje
-        $tamizajes = [ ['NAME'=>'A'], ['NAME'=>'B'], ['NAME'=>'C'] , ['NAME'=>'D']];
+        $tamizajes = [ ['NAME'=>'A', 'CODIGO'=>'01'], ['NAME'=>'B', 'CODIGO'=>'02' ], ['NAME'=>'C', 'CODIGO'=>'03'] , ['NAME'=>'D', 'CODIGO'=>'04']];
         DB::table('tamizajes')->insert($tamizajes);
 
     }

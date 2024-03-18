@@ -28,6 +28,7 @@
                 @endforeach
             </tbody>
         </table>
+        <br>    
         {{ $pruebas->links() }}
 
 </div>

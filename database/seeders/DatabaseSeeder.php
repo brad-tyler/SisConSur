@@ -21,7 +21,7 @@ class DatabaseSeeder extends Seeder
 
         User::factory(10)->create();
 
-        Pacient::factory(10)->create();
+        Pacient::factory(2800)->create();
 
         Prueba::factory(50)->create();
 

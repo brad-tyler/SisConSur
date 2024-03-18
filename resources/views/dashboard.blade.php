@@ -9,7 +9,9 @@
         <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
             <div class="bg-white overflow-hidden shadow-xl sm:rounded-lg">
                 {{-- <x-welcome /> --}}
-                <x-listado :pruebas="$pruebas" />
+                
+                <!--<x-reportesimple :adultos="$adultos" :adolecentes="$adolecentes" :gestantes="$gestantes" :ninos="$ninos"/>-->
+                <x-listadopacientes :pacientes="$pacientes" :filtro="$filtro" />
             </div> 
         </div>
     </div>

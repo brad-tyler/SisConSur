@@ -1,6 +1,9 @@
 <?php
 
 use App\Http\Controllers\PruebaController;
+use App\Http\Controllers\PacientController;
+use App\Http\Controllers\TamizajeController;
+
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -27,6 +30,11 @@ Route::middleware([
         //     return view('dashboard');               
         // })->name('dashboard');
         Route::redirect('/', 'dashboard');
-        Route::get('/dashboard', [PruebaController::class, 'index'])->name('dashboard');    //redundancia en las rutas ojo
+        Route::get('/dashboard', [PacientController::class, 'index'])->name('dashboard');    //redundancia en las rutas ojo
+
+        Route::get('/detallestamizaje/{id}', [PruebaController::class, 'detallesPrueba'])->name('tamizajedetalles'); 
+        
+        Route::get('/buscar',[PacientController::class, 'buscar'])->name('buscar');
+
 });
 

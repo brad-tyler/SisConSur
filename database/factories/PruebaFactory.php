@@ -31,6 +31,8 @@ class PruebaFactory extends Factory
             'pacient_id'=>$pacient->id,
             'tamizaje_id'=>$tamizaje->id,
             'user_id' =>$user->id,
+            'ESTADO'=> $this->faker->randomElement([true,false]),
+            'LUGAR' => $this->faker->text(),
         ];
     }
 }
