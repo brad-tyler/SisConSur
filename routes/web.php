@@ -36,5 +36,7 @@ Route::middleware([
         
         Route::get('/buscar',[PacientController::class, 'buscar'])->name('buscar');
 
+        Route::get('/pacientes-create', [PacientController::class, 'create'])->name('pacientes.create'); // INSERTAR PACIENTE
+        Route::post('/pacientes-store', [PacientController::class, 'store'])->name('pacientes.store'); // INSERTAR PACIENTE
 });
 

@@ -42,4 +42,21 @@ class PacientController extends Controller
         return view('dashboard', compact('pacientes','adultos','adolecentes', 'gestantes', 'ninos','filtro'));
     }
 
+    public function create()
+    {
+        //
+        return view('pacientes.create');
+    }
+
+    public function store(Request $request)
+    {
+        // Validar los datos del formulario si es necesario
+
+        $datosPaciente = $request->only(['dni', 'name', 'surname', 'edad', 'tipo', 'sexo']); // Obtener solo los datos necesarios del formulario
+        Pacient::create($datosPaciente); // Insertar los datos en la BD
+        return redirect()->route("dashboard");
+
+    }
+
+
 }
