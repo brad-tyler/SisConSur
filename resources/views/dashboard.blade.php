@@ -10,7 +10,7 @@
             <div class="bg-white overflow-hidden shadow-xl sm:rounded-lg">
                 {{-- <x-welcome /> --}}
                 
-                <!--<x-reportesimple :adultos="$adultos" :adolecentes="$adolecentes" :gestantes="$gestantes" :ninos="$ninos"/>-->
+                <x-reportesimple :adultos="$adultos" :adolecentes="$adolecentes" :gestantes="$gestantes" :ninos="$ninos"/>
                 <x-listadopacientes :pacientes="$pacientes" :filtro="$filtro" />
             </div> 
         </div>
