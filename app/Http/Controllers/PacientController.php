@@ -10,7 +10,7 @@ class PacientController extends Controller
     //
     public function index()
     {
-        $pacientes = Pacient::orderBy('id', 'DESC')->paginate(); // Obtiene los datos de la base de datos mediante el modelo
+        $pacientes = Pacient::orderBy('id', 'DESC')->paginate(10); // Obtiene los datos de la base de datos mediante el modelo
         $adultos = Pacient::all()->where('TIPO', 'ADULTO')->count();
         $adolecentes = Pacient::all()->where('TIPO', 'ADOLECENTE')->count();
         $gestantes = Pacient::all()->where('TIPO', 'GESTANTE')->count();
