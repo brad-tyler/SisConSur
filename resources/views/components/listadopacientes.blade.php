@@ -25,11 +25,12 @@
     <!--BUSCADOR EN TIEMPO REAL Y CONSULTANDO A LA BASE DE DATOS-->
 
     <div class="flex justify-between my-4">
-        <div>
+        @livewire('modal-crear')
+        {{-- <div>
             <button class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded">
                 <i>➕</i><a href="{{ route('pacientes.create') }}"> Agregar paciente</a>
             </button>
-        </div>
+        </div> --}}
         <div class="flex">
             <form class="flex" action="{{ route('buscar') }}" method="GET">
                 <input type="text" placeholder="Ingresar dato" class="w-full md:w-80 px-3 h-10 rounded-l border-2 border-gray-500  focus:border-gray-500" name="query">
@@ -67,7 +68,7 @@
                 <td class="py-2">{{ $paciente->TIPO }}</td>
                 <td class="py-2">{{ $paciente->SEXO }}</td>
                 <td class="py-2">
-
+                     {{-- <p>X</p>    --}}
                     <div class="btn-group">
                         <?php $contador = 0; ?>
                         @foreach($paciente->pruebas as $prueba)
@@ -85,7 +86,7 @@
                         @endforeach
 
 
-                        @while($contador < 4) <a class="btn btn-info" style="pointer-events:none; color: red; background-color: rgb(229, 229, 229) !important;" disabled>X </a>
+                        @while($contador < 4) <a class="btn btn-info rounded-circle" style="pointer-events:none; color: red; background-color: rgb(229, 229, 229) !important;" disabled>X </a>
                             <?php $contador += 1; ?>
                             @endwhile
                     </div>
