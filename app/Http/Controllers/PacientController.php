@@ -11,13 +11,9 @@ class PacientController extends Controller
     public function index()
     {
         $pacientes = Pacient::orderBy('id', 'DESC')->paginate(10); // Obtiene los datos de la base de datos mediante el modelo
-        $adultos = Pacient::all()->where('TIPO', 'ADULTO')->count();
-        $adolecentes = Pacient::all()->where('TIPO', 'ADOLECENTE')->count();
-        $gestantes = Pacient::all()->where('TIPO', 'GESTANTE')->count();
-        $ninos = Pacient::all()->where('TIPO', 'INFANTE')->count();
         $filtro = 'none';
 
-        return view('dashboard', compact('pacientes','adultos','adolecentes', 'gestantes', 'ninos','filtro'));
+        return view('dashboard', compact('pacientes','filtro'));
     }
 
 
@@ -56,6 +52,21 @@ class PacientController extends Controller
         Pacient::create($datosPaciente); // Insertar los datos en la BD
         return redirect()->route("dashboard");
 
+    }
+
+    // REPORTE MODAL
+    public function mostrar_reporte(Request $request)
+    {
+        // Validar los datos del formulario si es necesario
+
+        
+        $adultos = Pacient::all()->where('TIPO', 'ADULTO')->count();
+        $adolecentes = Pacient::all()->where('TIPO', 'ADOLECENTE')->count();
+        $gestantes = Pacient::all()->where('TIPO', 'GESTANTE')->count();
+        $ninos = Pacient::all()->where('TIPO', 'INFANTE')->count();
+        $filtro = 'none';
+
+        return view('reporte', compact('adultos','adolecentes', 'gestantes', 'ninos','filtro'));
     }
 
 

@@ -25,18 +25,19 @@ Route::middleware([
     'auth:sanctum',
     config('jetstream.auth_session'),
     'verified',
-    ])->group(function () {
-        // Route::get('/dashboard', function () {
-        //     return view('dashboard');               
-        // })->name('dashboard');
-        Route::redirect('/', 'dashboard');
-        Route::get('/dashboard', [PacientController::class, 'index'])->name('dashboard');    //redundancia en las rutas ojo
+])->group(function () {
+    // Route::get('/dashboard', function () {
+    //     return view('dashboard');               
+    // })->name('dashboard');
+    Route::redirect('/', 'dashboard');
+    Route::get('/dashboard', [PacientController::class, 'index'])->name('dashboard');    //redundancia en las rutas ojo
 
-        Route::get('/detallestamizaje/{id}', [PruebaController::class, 'detallesPrueba'])->name('tamizajedetalles'); 
-        
-        Route::get('/buscar',[PacientController::class, 'buscar'])->name('buscar');
+    Route::get('/reporte', [PacientController::class, 'mostrar_reporte'])->name('reporte');    //redundancia en las rutas ojo
 
-        Route::get('/pacientes-create', [PacientController::class, 'create'])->name('pacientes.create'); // INSERTAR PACIENTE
-        Route::post('/pacientes-store', [PacientController::class, 'store'])->name('pacientes.store'); // INSERTAR PACIENTE
+    Route::get('/detallestamizaje/{id}', [PruebaController::class, 'detallesPrueba'])->name('tamizajedetalles');
+
+    Route::get('/buscar', [PacientController::class, 'buscar'])->name('buscar');
+
+    Route::get('/pacientes-create', [PacientController::class, 'create'])->name('pacientes.create'); // INSERTAR PACIENTE
+    Route::post('/pacientes-store', [PacientController::class, 'store'])->name('pacientes.store'); // INSERTAR PACIENTE
 });
-
