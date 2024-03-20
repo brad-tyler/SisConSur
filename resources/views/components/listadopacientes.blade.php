@@ -1,114 +1,90 @@
-<!--MODAL PARA VER LOS DETALLES DE LOS TAMIZAJES-->
-<div class="modal fade" id="miModal" tabindex="-1" role="dialog" aria-labelledby="miModalLabel" aria-hidden="true">
-    <div class="modal-dialog modal-dialog-centered" role="document">
-        <div class="modal-content">
-            <div class="modal-header">
-                <h5 class="modal-title-dark" id="miModalLabel">DETALLES DE TAMIZAJE</h5>
-                <button class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-            </div>
-            <div class="modal-body">
-                <p id="Paciente"></p>
-                <p id="Doctor"></p>
-                <p id="Fecha"></p>
-                <p id="Tipo"></p>
-                <p id="Estado"></p>
-            </div>
-            <div class="modal-footer">
-                <button class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
-            </div>
-        </div>
-    </div>
-</div>
-
 <div class="p-6 lg:p-8 bg-white border-b border-gray-200">
 
     <!--BUSCADOR EN TIEMPO REAL Y CONSULTANDO A LA BASE DE DATOS-->
 
-    <div class="flex justify-between my-4">
+    <div class="flex justify-between mb-4">
         @livewire('modal-crear')
         {{-- <div>
             <button class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded">
                 <i>➕</i><a href="{{ route('pacientes.create') }}"> Agregar paciente</a>
-            </button>
-        </div> --}}
-        <div class="flex">
-            <form class="flex" action="{{ route('buscar') }}" method="GET">
-                <input type="text" placeholder="Ingresar dato" class="w-full md:w-80 px-3 h-10 rounded-l border-2 border-gray-500  focus:border-gray-500" name="query">
-                <button type="submit" class="bg-gray-500 text-white rounded-r px-2 md:px-3 py-0 md:py-1 hover:bg-gray-600" type="submit">Buscar</button>
+        </button>
+    </div> --}}
+    <div class="flex">
+        <form class="flex" action="{{ route('buscar') }}" method="GET">
+            <input type="text" placeholder="Ingresar dato" class="w-full md:w-80 px-3 h-10 rounded-l border-2 border-gray-500  focus:border-gray-500" name="query">
+            <button type="submit" class="bg-gray-500 text-white rounded-r px-2 md:px-3 py-0 md:py-1 hover:bg-gray-600" type="submit">Buscar</button>
+        </form>
+        <div class="bg-red-500 hover:bg-red-600 text-white font-bold py-2 px-4 rounded ml-1" style="display: {{ $filtro; }}">
+            <form action="{{ route('dashboard') }}" method="GET">
+                <button class="button text-gray-500" type="submit">
+                    ❌
+                </button>
             </form>
-            <div class="bg-red-500 hover:bg-red-600 text-white font-bold py-2 px-4 rounded ml-1" style="display: {{ $filtro }}">
-                <form action="{{ route('dashboard') }}" method="GET">
-                    <button class="button text-gray-500" type="submit">
-                        ❌
-                    </button>
-                </form>
-            </div>
         </div>
-
     </div>
 
-    <table class="table-auto w-full">
-        <thead class="text-xs uppercase border-b bg-gray-700 " style="color:white; font-size:1rem;">
-            <tr class="align-center">
-                <th scope="col" class="px-1 py-2">ID</th>
-                <th scope="col" class="px-1 py-2">DNI</th>
-                <th scope="col" class="px-1 py-2">NOMBRES</th>
-                <th scope="col" class="px-1 py-2">TIPO DE PACIENTE</th>
-                <th scope="col" class="px-1 py-2">SEXO</th>
-                <th scope="col" class="px-1 py-2">TAMIZAJES</th>
-                <th scope="col" class="px-1 py-2">ACCIONES</th>
-            </tr>
-        </thead>
-        <tbody>
-            @foreach($pacientes as $paciente)
-            <tr id="{{ $paciente->id }}" class="border-b  border-gray-700">
-                <td scope="row" class="px-4 text-gray-700">{{ $paciente->id }}</td>
-                <td class="py-2">{{ $paciente->DNI }}</td>
-                <td class="py-2">{{ $paciente->NAME }}</td>
-                <td class="py-2">{{ $paciente->TIPO }}</td>
-                <td class="py-2">{{ $paciente->SEXO }}</td>
-                <td class="py-2">
-                     {{-- <p>X</p>    --}}
-                    <div class="btn-group">
-                        <?php $contador = 0; ?>
-                        @foreach($paciente->pruebas as $prueba)
+</div>
 
-                        <button class="btn btn-info abrir-modal" data-id="{{ $prueba->id }}" data-bs-toggle="modal" data-bs-target="#miModal">{{$prueba->tamizaje->CODIGO}}</button>
+<table class="table-auto w-full rounded">
+    <thead class="text-s uppercase border-b bg-gray-700 rounded text-white font-bold">
+        <tr class="text-left">
+            <th scope="col" class="px-[1.2rem] py-2">ID</th>
+            <th scope="col" class="px-1 py-2">DNI</th>
+            <th scope="col" class="px-1 py-2">NOMBRES</th>
+            <th scope="col" class="px-1 py-2">TIPO DE PACIENTE</th>
+            <th scope="col" class="px-1 py-2">SEXO</th>
+            <th scope="col" class="px-[1.2rem] py-2 text-center">TAMIZAJES</th>
+            <th scope="col" class="px-[1.2rem] py-2 text-center">ACCIONES</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach ($pacientes as $paciente)
+        <tr id="{{ $paciente->id }}" class="border-b border-gray-700 hover:bg-slate-100 text-left">
+            <td scope="row" class="px-4 text-gray-700">{{ $paciente->id }}</td>
+            <td class="py-2">{{ $paciente->DNI }}</td>
+            <td class="py-2">{{ $paciente->NAME }}</td>
+            <td class="py-2">{{ $paciente->TIPO }}</td>
+            <td class="py-2">{{ $paciente->SEXO }}</td>
+            <td class="py-2">
+                <div class="flex items-center justify-center space-x-0 ">
+                    @php $contador = 0; @endphp
+                    @foreach($paciente->pruebas as $prueba)
+                    @livewire('modal-detalles', ['prueba' => $prueba], key($prueba->id))
+                    @php $contador++; @endphp
+                    @if ($contador >= 4)
+                    @break
+                    @endif
+                    @endforeach
 
-                        <?php $contador += 1; ?>
-                        <!--//YA QUE EN EL FACTORY NO ESTAMOS CONTROLANDO LA CANTIDAD DE TAMIZAJES ASIGNADOS A CADA USUARIO-->
-
-                        @if($contador == 4)
-                        <?php $contador += 1; ?>
-                        @break
+                    @while ($contador < 4) @if ($contador < count($paciente->pruebas))
+                        <!-- Mostrar componente Livewire si hay pruebas disponibles -->
+                        @livewire('modal-detalles', ['prueba' => null])
+                        @else
+                        <button class="bg-gray-300 text-red-500 rounded-full w-10 h-10 cursor-not-allowed" disabled>X</button>
                         @endif
+                        @php $contador++; @endphp
+                        @endwhile
+                </div>
+            </td>
+            <td class="h-[50px] justify-center text-center">
+                <?php
 
-                        @endforeach
+                if ($paciente->pruebas->count() >= 4) {
+                    // echo '<button style="pointer-events:none; color: red; background-color: rgb(229, 229, 229) !important;">TAMIZAJES COMPLETOS</button>';
+                    echo '<button class="bg-red-500 hover:bg-red-700 text-white font-bold py-1 px-4 rounded mx-4">TAMIZAJES COMPLETOS</button>';
+                } else {
+                    // echo '<button class="btn btn-primary">APLICAR TAMIZAJE</button>';
+                    echo '<button class="bg-blue-600 hover:bg-blue-800 text-white font-bold py-1 px-4 rounded mx-4">APLICAR TAMIZAJE</button>';
+                }
+                ?>
 
-
-                        @while($contador < 4) <a class="btn btn-info rounded-circle" style="pointer-events:none; color: red; background-color: rgb(229, 229, 229) !important;" disabled>X </a>
-                            <?php $contador += 1; ?>
-                            @endwhile
-                    </div>
-
-                </td>
-                <td class="py-2">
-                    <?php
-
-                    if ($paciente->pruebas->count() >= 4) {
-                        echo '<button style="pointer-events:none; color: red; background-color: rgb(229, 229, 229) !important;">TAMIZAJES COMPLETOS</button>';
-                    } else {
-                        echo '<button class="btn btn-primary">APLICAR TAMIZAJE</button>';
-                    }
-                    ?>
-
-                </td>
-            </tr>
-            @endforeach
-        </tbody>
-    </table>
-    <br>
-    {{ $pacientes->links() }}
+            </td>
+        </tr>
+        @endforeach
+    </tbody>
+</table>
+<br>
+{{ $pacientes->links() }}
 </div>
 
 
