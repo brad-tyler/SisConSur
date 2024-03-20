@@ -1,9 +1,9 @@
 <?php
 
+use App\Http\Controllers\AdminController;
 use App\Http\Controllers\PruebaController;
 use App\Http\Controllers\PacientController;
 use App\Http\Controllers\TamizajeController;
-
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -38,5 +38,8 @@ Route::middleware([
 
         Route::get('/pacientes-create', [PacientController::class, 'create'])->name('pacientes.create'); // INSERTAR PACIENTE
         Route::post('/pacientes-store', [PacientController::class, 'store'])->name('pacientes.store'); // INSERTAR PACIENTE
+
+
+        Route::get('/admin', [AdminController::class, 'index'])->name('admin.index');    //ADMIN
 });
 
