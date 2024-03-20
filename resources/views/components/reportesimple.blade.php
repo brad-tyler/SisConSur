@@ -1,5 +1,6 @@
-<div class="grid grid-cols-2 grid-rows-2 gap-4">
-    <div class="bg-blue-400 m-4">
+<h1 class="text-2xl border-b-4 border-gray-500 m-4">REPORTE TAMIZAJES</h1>
+<div class="sm:grid sm:grid-cols-2 grid-rows-2 gap-4">
+    <div class="bg-blue-400 m-4 rounded-lg">
         <div class="grid grid-cols-2">
             <div class="p-2">
                 <h3 class="text-white text-2xl font-bold my-2">{{$gestantes}}</h3>
@@ -11,15 +12,14 @@
                 </svg>
             </div>
         </div>
-        <a href="#">
-            <div class="bg-blue-500 w-full flex justify-center text-white mt-2 hover:bg-blue-600">
+        <a href="#" >
+            <div class="bg-blue-500 w-full flex justify-center text-white mt-2 hover:bg-blue-600 rounded-b-lg">
                 Mas información ➡
-
             </div>
         </a>
     </div>
 
-    <div class="bg-green-400 m-4">
+    <div class="bg-green-400 m-4 rounded-lg">
         <div class="grid grid-cols-2">
             <div class="p-2">
                 <h3 class="text-white text-2xl font-bold my-2">{{$ninos}}</h3>
@@ -32,13 +32,13 @@
             </div>
         </div>
         <a href="#">
-            <div class="bg-green-500 w-full flex justify-center text-white mt-2 hover:bg-green-600">
+            <div class="bg-green-500 w-full flex justify-center text-white mt-2 hover:bg-green-600 rounded-b-lg">
                 Mas información ➡
             </div>
         </a>
     </div>
 
-    <div class="bg-yellow-400 m-4">
+    <div class="bg-yellow-400 m-4 rounded-lg">
         <div class="grid grid-cols-2">
             <div class="p-2">
                 <h3 class="text-white text-2xl font-bold my-2">{{$adolecentes}}</h3>
@@ -51,13 +51,13 @@
             </div>
         </div>
         <a href="#">
-            <div class="bg-yellow-500 w-full flex justify-center text-white mt-2 hover:bg-yellow-600">
+            <div class="bg-yellow-500 w-full flex justify-center text-white mt-2 hover:bg-yellow-600 rounded-b-lg">
                 Mas información ➡
             </div>
         </a>
     </div>
 
-    <div class="bg-red-400 m-4">
+    <div class="bg-red-400 m-4 rounded-lg">
         <div class="grid grid-cols-2">
             <div class="p-2">
                 <h3 class="text-white text-2xl font-bold my-2">{{$adultos}}</h3>
@@ -70,12 +70,17 @@
             </div>
         </div>
         <a href="#">
-            <div class="bg-red-500 w-full flex justify-center text-white mt-2 hover:bg-red-600">
+            <div class="bg-red-500 w-full flex justify-center text-white mt-2 hover:bg-red-600 rounded-b-lg">
                 Mas información ➡
             </div>
         </a>
     </div>
 </div>
+<h1 class="text-2xl border-b-4 border-gray-500 m-4">OTRO REPORTE</h1>
+<p class="m-4"><strong>/COMENTARIO 👻/: </strong>AQUI PODEMOS PONER OTROS REPORTES O PODEMOS PONER BOTONES PARA EXPORTAR EN EXCEL</p>
+
+
+<hr>
 <div class="grid grid-cols-1 lg:grid-cols-4 gap-4  m-2">
     <div class="col-span-1 lg:col-span-1">
 
@@ -147,6 +152,8 @@
     </div>
 
 </div>
+
+
 
 <style>
     .row {
