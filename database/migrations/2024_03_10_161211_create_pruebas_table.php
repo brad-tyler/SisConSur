@@ -25,6 +25,7 @@ return new class extends Migration
             $table->unsignedBigInteger('tamizaje_id')->nullable();
             $table->foreign('tamizaje_id')->references('id')->on('tamizajes')->onDelete('set null');
 
+            #Relación con usuario
             $table->unsignedBigInteger('user_id')->nullable();
             $table->foreign('user_id')->references('id')->on('users')->onDelete('set null');
 
