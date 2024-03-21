@@ -77,7 +77,9 @@
     </div>
 </div>
 <h1 class="text-2xl border-b-4 border-gray-500 m-4">OTRO REPORTE</h1>
-<p class="m-4"><strong>/COMENTARIO 👻/: </strong>AQUI PODEMOS PONER OTROS REPORTES O PODEMOS PONER BOTONES PARA EXPORTAR EN EXCEL</p>
+<p class="mx-4 transform -skew-y-12 absolute gap-x-0"><strong>NOTAS:</strong></p>
+<p class="pl-[80px]">👻 AQUI PODEMOS PONER OTROS REPORTES O PODEMOS PONER BOTONES PARA EXPORTAR EN EXCEL</p>
+<p class="m-4">HICE UN REPORTE DE TAMIZAJES Y SU CÓDIGO, SI QUIEREN VERLO VAYAN A <strong>http://127.0.0.1:8000/reporte-prueba</strong> Estoy mejorandolo 🤠</p>
 
 
 <hr>

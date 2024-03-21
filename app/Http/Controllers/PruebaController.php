@@ -3,6 +3,8 @@
 namespace App\Http\Controllers;
 
 use \App\Models\Prueba;
+use Illuminate\Http\Request;
+use \App\Models\Tamizaje;
 
 //para las fechas
 use Carbon\Carbon;
@@ -37,5 +39,20 @@ class PruebaController extends Controller
 
 
         return response()->json(['paciente'=>$a , 'doctor'=>$b , 'fecha'=>$dia.'-'.$mes.'-'.$year , 'estado'=>$registro->ESTADO]);
+    }
+
+    public function reporte_tipo_tamizaje(Request $request)
+    {
+        // Validar los datos del formulario si es necesario
+
+        
+        $tipo1 = Prueba::all()->where('tamizaje_id', '1')->count();
+        $nombre_1 = Tamizaje::find(1);
+        $tipo1NAME = $nombre_1->NAME;
+        
+        $tipo2 = Prueba::all()->where('tamizaje_id', '2')->count();
+        $nombre_2 = Tamizaje::find(2);
+        $tipo2NAME = $nombre_2->NAME;
+        return view('reporte-prueba', compact('tipo1','tipo1NAME', 'tipo2','tipo2NAME'));
     }
 }

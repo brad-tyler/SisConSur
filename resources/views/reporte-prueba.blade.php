@@ -1,7 +1,7 @@
 <x-app-layout>
     <x-slot name="header">
         <h2 class="font-semibold text-xl text-gray-800 leading-tight">
-            {{ __('Reporte de registros') }}
+            {{ __('Reporte de registros prueba') }}
         </h2>
     </x-slot>
 
@@ -9,9 +9,7 @@
         <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
             <div class="bg-white overflow-hidden shadow-xl sm:rounded-lg">
                 {{-- <x-welcome /> --}}
-                
-                <x-reportesimple :adultos="$adultos" :adolecentes="$adolecentes" :gestantes="$gestantes" :ninos="$ninos"/> 
-
+                <x-reporte-tipo-tamizaje :tipo1="$tipo1" :tipo1NAME="$tipo1NAME" :tipo2="$tipo2" :tipo2NAME="$tipo2NAME"/> 
             </div> 
         </div>
     </div>

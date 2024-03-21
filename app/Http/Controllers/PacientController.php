@@ -58,8 +58,6 @@ class PacientController extends Controller
     public function mostrar_reporte(Request $request)
     {
         // Validar los datos del formulario si es necesario
-
-        
         $adultos = Pacient::all()->where('TIPO', 'ADULTO')->count();
         $adolecentes = Pacient::all()->where('TIPO', 'ADOLECENTE')->count();
         $gestantes = Pacient::all()->where('TIPO', 'GESTANTE')->count();
@@ -68,6 +66,8 @@ class PacientController extends Controller
 
         return view('reporte', compact('adultos','adolecentes', 'gestantes', 'ninos','filtro'));
     }
+
+    
 
 
 }

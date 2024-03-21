@@ -34,6 +34,8 @@ Route::middleware([
 
     Route::get('/reporte', [PacientController::class, 'mostrar_reporte'])->name('reporte');    //redundancia en las rutas ojo
 
+    Route::get('/reporte-prueba', [PruebaController::class, 'reporte_tipo_tamizaje'])->name('reporte-prueba');    //redundancia en las rutas ojo
+
     Route::get('/detallestamizaje/{id}', [PruebaController::class, 'detallesPrueba'])->name('tamizajedetalles');
 
     Route::get('/buscar', [PacientController::class, 'buscar'])->name('buscar');
