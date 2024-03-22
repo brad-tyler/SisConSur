@@ -30,6 +30,7 @@
                 <div class="m-4">
                     <label for="tipo">TIPO PACIENTE:</label>
                     <select class="w-full mt-2" name="tipo" id="tipo" required>
+                        <option value="" disabled selected>Tipo de paciente</option>
                         <option value="INFANTE">INFANTE</option>
                         <option value="ADOLESCENTE">ADOLESCENTE</option>
                         <option value="ADULTO">ADULTO</option>
@@ -39,24 +40,24 @@
                 <div class="w-full flex flex-row justify-between">
                     <div class="m-4">
                         <label for="dni">DNI:</label>
-                        <input type="text" class="w-full mt-2" name="dni" id="dni" required>
+                        <input type="text" class="w-full mt-2" name="dni" id="dni" pattern="[0-9]{8}" title="Solo se permiten números de 8 dígitos" required>
                     </div>
                     <div class="m-4">
                         <label for="sexo">SEXO:</label>
                         <select class="w-full mt-2" name="sexo" id="sexo" required>
+                            <option value="" disabled selected>Sexo</option>
                             <option value="M">Masculino</option>
                             <option value="F">Femenino</option>
                         </select>
                     </div>
                     <div class="m-4">
                         <label for="edad">EDAD:</label>
-                        <input type="text" class="w-full mt-2" name="edad" id="edad" required>
+                        <input type="text" class="w-full mt-2" name="edad" id="edad" pattern="[0-9]+" title="Solo se permiten números" required>
                     </div>
                 </div>
                 <div class="m-1 flex justify-end">
                     <button wire:click="$set('open', false)" class="bg-red-500 hover:bg-red-700 text-white font-bold py-2 px-4 rounded mx-4">Cancelar</button>
-                    <button type="submit"
-                        class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded">ENVIAR</button>
+                    <button type="submit" class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded">ENVIAR</button>
                 </div>
             </form>
         </x-slot>

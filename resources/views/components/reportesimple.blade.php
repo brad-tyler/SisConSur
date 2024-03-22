@@ -1,5 +1,5 @@
-<div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-2 lg:grid-cols-4 gap-4 m-2">
-    <div class="col-span-1 sm:col-span-2 lg:col-span-1">
+<div class="grid grid-cols-1 lg:grid-cols-4 gap-4  m-2">
+    <div class="col-span-1 lg:col-span-1">
 
         <div class="small-box bg-info px-4 rounded-lg shadow-lg bg-blue-500">
             <div class="text-center">
@@ -69,6 +69,8 @@
     </div>
 
 </div>
+
+
 
 <style>
     .row {
