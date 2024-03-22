@@ -90,11 +90,11 @@
         </tbody>
     </table>
     <br>
-    {{ $pacientes->links() }}
+    {{ $pacientes->links()}}
 </div>
 
 
-<script>
+{{-- <script>
     $(document).ready(function() {
         $('.abrir-modal').on('click', function() {
 
@@ -118,10 +118,10 @@
                 }
             });
         });
-    });
+    }); --}}
 
 
-
+{{-- 
     //GPT 4
     document.getElementById('buscador').addEventListener('input', function() {
         var input = this.value.toLowerCase();
@@ -142,4 +142,4 @@
             }
         });
     });
-</script>
+</script> --}}
