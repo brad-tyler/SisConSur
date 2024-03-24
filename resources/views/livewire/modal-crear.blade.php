@@ -32,7 +32,7 @@
                     <select class="w-full mt-2" name="tipo" id="tipo" required>
                         <option value="" disabled selected>Tipo de paciente</option>
                         <option value="INFANTE">INFANTE</option>
-                        <option value="ADOLESCENTE">ADOLESCENTE</option>
+                        <option value="ADOLECENTE">ADOLECENTE</option>
                         <option value="ADULTO">ADULTO</option>
                         <option value="GESTANTE">GESTANTE</option>
                     </select>
