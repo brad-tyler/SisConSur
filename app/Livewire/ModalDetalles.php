@@ -18,9 +18,7 @@ class ModalDetalles extends Component
 
     public function render()
     {
-        $detalle = Prueba::find($this->prueba->id); // Usamos $this->prueba para obtener el ID de la prueba
-        $user = User::all();
-        return view('livewire.modal-detalles', compact('detalle', 'user'));
+        return view('livewire.modal-detalles');
     }
 
     // public function render($id)

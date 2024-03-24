@@ -42,6 +42,10 @@ Route::middleware([
 
     Route::get('/pacientes-create', [PacientController::class, 'create'])->name('pacientes.create'); // INSERTAR PACIENTE
     Route::post('/pacientes-store', [PacientController::class, 'store'])->name('pacientes.store'); // INSERTAR PACIENTE
+
+    //insertar prueba
+    Route::post('/registrar-prueba/{id}',[PruebaController::class,'insertar'])->name('registrarprueba');
     
     Route::get('/admin.index', [AdminController::class, 'index'])->name('admin.index');
+    
 });

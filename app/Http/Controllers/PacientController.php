@@ -7,6 +7,7 @@ use \App\Models\Pacient;
 
 class PacientController extends Controller
 {
+   
     //
     public function index()
     {
