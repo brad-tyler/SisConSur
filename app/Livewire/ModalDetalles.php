@@ -4,6 +4,7 @@ namespace App\Livewire;
 
 use App\Models\Prueba;
 use App\Models\User;
+use Carbon\Carbon;
 use Livewire\Component;
 
 class ModalDetalles extends Component
@@ -20,25 +21,15 @@ class ModalDetalles extends Component
     {
         $detalle = Prueba::find($this->prueba->id); // Usamos $this->prueba para obtener el ID de la prueba
         $user = User::all();
+
+        //prueba para el listado por fecha
+        // $fecha = Carbon::parse($detalle->created_at);
+        // $fecha_formato = $fecha->toDateString();
+
+        // $year = $fecha->format('Y');
+        // $mes = $fecha->format('M');
+        // $dia = $fecha->format('d');
+        // return view('livewire.modal-detalles', compact('detalle', 'user', 'year', 'mes', 'dia'));
         return view('livewire.modal-detalles', compact('detalle', 'user'));
     }
-
-    // public function render($id)
-    // {
-    //     $registro = Prueba::find($id);
-
-    //     $a = $registro->pacient->NAME;
-
-    //     $b = $registro->user->name;
-
-    //     $fecha = Carbon::parse($registro->created_at);
-    //     $fecha_formato = $fecha->toDateString();
-        
-    //     $year = $fecha->format('y');
-    //     $mes = $fecha->format('m');
-    //     $dia = $fecha->format('d');
-
-    //     return view('livewire.modal-detalles', compact('prueba','pacient'));
-    //     return response()->json(['paciente'=>$a , 'doctor'=>$b , 'fecha'=>$dia.'-'.$mes.'-'.$year , 'estado'=>$registro->ESTADO]);
-    // }
 }
