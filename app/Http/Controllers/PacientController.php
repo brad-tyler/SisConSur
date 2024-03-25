@@ -7,6 +7,7 @@ use \App\Models\Pacient;
 
 class PacientController extends Controller
 {
+   
     //
     public function index()
     {
@@ -24,6 +25,7 @@ class PacientController extends Controller
         // Buscar registros que coincidan con el término de búsqueda en cualquier columna
         $pacientes = Pacient::where(function ($q) use ($query) {
             $q->where('NAME', 'like', "%$query%")
+            ->orWhere('SURNAME', 'like', "%$query%")
             ->orWhere('DNI', 'like', "%$query%")
             ->orWhere('TIPO', 'like', "%$query%");
         })->paginate();
