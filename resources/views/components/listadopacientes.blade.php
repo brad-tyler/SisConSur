@@ -4,11 +4,7 @@
 
     <div class="flex justify-between mb-4">
         @livewire('modal-crear')
-        {{-- <div>
-            <button class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded">
-                <i>➕</i><a href="{{ route('pacientes.create') }}"> Agregar paciente</a>
-        </button>
-    </div> --}}
+
     <div class="flex">
         <form class="flex" action="{{ route('buscar') }}" method="GET">
             <input type="text" placeholder="Ingresar dato" class="w-full md:w-80 px-3 h-10 rounded-l border-2 border-gray-500  focus:border-gray-500" name="query">
@@ -66,29 +62,26 @@
                         @endwhile
                 </div>
             </td>
-            <td class="h-[50px] justify-center text-center">
-                <?php
+                        <td class="h-[50px] justify-center text-center">
+                            
 
-                if ($paciente->pruebas->count() >= 4) {
-                    // echo '<button style="pointer-events:none; color: red; background-color: rgb(229, 229, 229) !important;">TAMIZAJES COMPLETOS</button>';
-                    echo '<button class="bg-red-500 hover:bg-red-700 text-white font-bold py-1 px-4 rounded mx-4">TAMIZAJES COMPLETOS</button>';
-                } else {
-                    // echo '<button class="btn btn-primary">APLICAR TAMIZAJE</button>';
-                    echo '<button class="bg-blue-600 hover:bg-blue-800 text-white font-bold py-1 px-4 rounded mx-4">APLICAR TAMIZAJE</button>';
-                }
-                ?>
-
-            </td>
-        </tr>
-        @endforeach
-    </tbody>
-</table>
-<br>
-{{ $pacientes->links() }}
+                            @if($paciente->pruebas->count() >= 4)
+                                <button class="bg-red-500 hover:bg-red-700 text-white font-bold py-1 px-4 rounded mx-4">TAMIZAJES COMPLETOS</button>
+                            @else 
+                                @livewire('modal-prueba',['paciente' => $paciente->id , 'name' => $paciente->NAME])
+                            @endif
+                            
+                        </td>
+                </tr>
+            @endforeach
+        </tbody>
+    </table>
+    <br>
+    {{ $pacientes->links() }}
 </div>
 
 
-<script>
+{{-- <script>
     $(document).ready(function() {
         $('.abrir-modal').on('click', function() {
 
@@ -112,10 +105,10 @@
                 }
             });
         });
-    });
+    }); --}}
 
 
-
+{{-- 
     //GPT 4
     document.getElementById('buscador').addEventListener('input', function() {
         var input = this.value.toLowerCase();
@@ -137,3 +130,4 @@
         });
     });
 </script>
+--}}

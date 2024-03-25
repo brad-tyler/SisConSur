@@ -1,5 +1,5 @@
 <div>
-    <div class="grid grid-cols-1 lg:grid-cols-4 gap-4  m-2">
+    <div class="grid grid-cols-2 lg:grid-cols-4 gap-4 m-2">
         <div class="col-span-1 lg:col-span-1">
 
             <div class="small-box bg-info px-4 rounded-lg shadow-lg bg-blue-500">
@@ -74,8 +74,144 @@
         </div>
     </div>
 
-    <div class="grid grid-cols-1 lg:grid-cols-4 gap-4  m-2">
-        <h2>Hola mundo ....!!!</h2>
-    </div>
+    {{-- <div class="grid grid-cols-1 lg:grid-cols-4 gap-4  m-2"> --}}
+    {{-- datos-circular-columns.blade --}}
+    <div class="grid grid-cols-1 lg:grid-cols-2 gap-4 m-2">
+        {{-- <div class="col-span-1 lg:col-span-1">
+            <div id="circular"></div>
+        </div>
+        <div class="col-span-1 lg:col-span-1">
+            <div id="charts"></div>
+        </div> --}}
+        <x-datos-circular-columns :adultos="$adultos" :adolecentes="$adolecentes" :gestantes="$gestantes" :ninos="$ninos" />
         
+    </div>
+    {{-- </div> --}}
+
 </div>
+{{-- <script>
+    document.addEventListener("DOMContentLoaded", function() {
+        Highcharts.chart('circular', {
+            chart: {
+                type: 'pie'
+            },
+            title: {
+                text: 'Porcentajes de tamizajes, 202-',
+                align: 'center'
+            },
+            tooltip: {
+                pointFormat: '{series.name}: <b>{point.percentage:.1f}%</b>'
+            },
+            accessibility: {
+                point: {
+                    valueSuffix: '%'
+                }
+            },
+            plotOptions: {
+                series: {
+                    allowPointSelect: true,
+                    cursor: 'pointer',
+                    dataLabels: [{
+                        enabled: true,
+                        distance: 20
+                    }, {
+                        enabled: true,
+                        distance: -40,
+                        format: '{point.percentage:.1f}%',
+                        style: {
+                            fontSize: '1.2em',
+                            textOutline: 'none',
+                            opacity: 0.7
+                        },
+                        filter: {
+                            operator: '>',
+                            property: 'percentage',
+                            value: 10
+                        }
+                    }]
+                }
+            },
+            series: [{
+                name: 'procentaje',
+                colorByPoint: true,
+                data: [{
+                    name: 'ADULTOS',
+                    y: {{ $adultos }},
+                }, {
+                    name: 'ADOLESCENTES',
+                    y: {{ $adolecentes }}
+                }, {
+                    name: 'GESTANTES',
+                    y: {{ $gestantes }}
+                }, {
+                    name: 'NIÑOS',
+                    y: {{ $ninos }}
+                }]
+            }]
+        });
+    });
+
+    document.addEventListener("DOMContentLoaded", function() {
+
+        // Create the chart
+        Highcharts.chart('charts', {
+            chart: {
+                type: 'column'
+            },
+            title: {
+                align: 'center',
+                text: 'Tamizajes tipos de pacientes, 202-'
+            },
+            accessibility: {
+                announceNewData: {
+                    enabled: true
+                }
+            },
+            xAxis: {
+                type: 'category'
+            },
+            yAxis: {
+                title: {
+                    text: 'Cantidad Total'
+                }
+
+            },
+            legend: {
+                enabled: false
+            },
+            plotOptions: {
+                series: {
+                    borderWidth: 0,
+                    dataLabels: {
+                        enabled: true,
+                        format: '{point.y:.1f} tam'
+                    }
+                }
+            },
+
+            tooltip: {
+                headerFormat: '<span style="font-size:11px">{series.name}</span><br>',
+                pointFormat: '<span style="color:{point.color}">{point.name}</span>: <b>{point.y:.2f}%</b> del total<br/>'
+            },
+
+            series: [{
+                name: 'TIPO',
+                colorByPoint: true,
+                data: [{
+                    name: 'ADULTOS',
+                    y: {{ $adultos }},
+                }, {
+                    name: 'ADOLESCENTES',
+                    y: {{ $adolecentes }}
+                }, {
+                    name: 'GESTANTES',
+                    y: {{ $gestantes }}
+                }, {
+                    name: 'NIÑOS',
+                    y: {{ $ninos }}
+                }]
+            }],
+        });
+
+    });
+</script> --}}
