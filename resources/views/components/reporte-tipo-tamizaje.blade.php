@@ -1,30 +1,30 @@
 <div class="lg:grid lg:grid-cols-3">
 
-    <div class="bg-blue-400 m-4 rounded-lg flex flex-col justify-between">
-        <div class="grid grid-cols-3 h-full justify-center items-center">
-            <div class="p-2 col-span-2 grid">
+    <div class="bg-blue-500 m-4 rounded-lg flex flex-col justify-between ">
+        <div class="grid grid-cols-5 h-full justify-center items-center">
+            <div class="p-2 col-span-3">
                 <h3 class="text-white text-3xl font-bold my-2">{{$tipo1NAME}}</h3>
-                <h1 class="text-white text-2xl">Código: 1</h1>
+                <h1 class="text-white text-2xl my-2">Codigo: 1</h1>
             </div>
-            <div class="opacity-35">
-                <h1 class="text-[120px]">{{$tipo1}}</h1>
+            <div class="flex justify-start items-start text-6xl opacity-35 p-2 mt-3">
+            <h1 class="text-[120px]">{{$tipo1}}</h1>
             </div>
         </div>
-        <a href="#" class="">
-            <div class="bg-blue-600 w-full flex justify-center text-white mt-2 hover:bg-blue-900 rounded-b-lg">
+        <a href="#">
+            <div class="bg-blue-700 w-full flex justify-center text-white mt-2 hover:bg-blue-900 rounded-b-lg">
                 Mas información ➡
             </div>
         </a>
     </div>
 
     <div class="bg-red-500 m-4 rounded-lg flex flex-col justify-between ">
-        <div class="grid grid-cols-3 h-full justify-center items-center">
-            <div class="p-2 col-span-2">
+        <div class="grid grid-cols-5 h-full justify-center items-center">
+            <div class="p-2 col-span-3">
                 <h3 class="text-white text-3xl font-bold my-2">{{$tipo2NAME}}</h3>
                 <h1 class="text-white text-2xl my-2">Codigo: 2</h1>
             </div>
-            <div class="flex justify-center items-center text-6xl opacity-35 p-2 mt-3">
-                <h1 class="text-[120px]">{{$tipo2}}</h1>
+            <div class="flex justify-start items-start text-6xl opacity-35 p-2 mt-3">
+            <h1 class="text-[120px]">{{$tipo2}}</h1>
             </div>
         </div>
         <a href="#">

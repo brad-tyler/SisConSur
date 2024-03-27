@@ -107,13 +107,21 @@ class PruebaController extends Controller
         $nombre_7 = Tamizaje::find(7);
         $tipo7NAME = $nombre_7->NAME;
 
-        return view('reporte-prueba', compact(  'tipo1','tipo1NAME', 
+        // Validar los datos del formulario si es necesario
+        $adultos = Pacient::all()->where('TIPO', 'ADULTO')->count();
+        $adolecentes = Pacient::all()->where('TIPO', 'ADOLECENTE')->count();
+        $gestantes = Pacient::all()->where('TIPO', 'GESTANTE')->count();
+        $ninos = Pacient::all()->where('TIPO', 'INFANTE')->count();
+        $filtro = 'none';
+
+        return view('reporte', compact(  'tipo1','tipo1NAME', 
                                                 'tipo2','tipo2NAME',
                                                 'tipo3','tipo3NAME',
                                                 'tipo4','tipo4NAME',
                                                 'tipo5','tipo5NAME',
                                                 'tipo6','tipo6NAME',
                                                 'tipo7','tipo7NAME',
+                                                'adultos','adolecentes', 'gestantes', 'ninos','filtro'
                                             ));
     }
 }
