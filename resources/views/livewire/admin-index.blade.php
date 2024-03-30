@@ -40,7 +40,7 @@
 
             <div class="small-box bg-info px-4 rounded-lg shadow-lg bg-yellow-400">
                 <div class="text-center">
-                    <p class="text-white">ADOLECENTES</p>
+                    <p class="text-white">ADOLESCENTES</p>
                     <h3 class="text-white text-2xl font-bold">{{ $adolecentes }}</h3>
                 </div>
                 <div class="icon flex justify-center items-center text-white">
