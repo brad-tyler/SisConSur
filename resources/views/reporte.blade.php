@@ -14,7 +14,7 @@
                 <x-reportesimple :adultos="$adultos" :adolecentes="$adolecentes" :gestantes="$gestantes" :ninos="$ninos" />
 
                 <h1 class="text-2xl border-b-4 border-gray-500 m-4">REPORTE TIPO DE TAMIZAJE</h1>
-                <div class="flex">
+                <div class="flex mb-5">
                     <x-datos-cir-columns-pruebas                :tipo1="$tipo1" :tipo1NAME="$tipo1NAME" 
                                                                 :tipo2="$tipo2" :tipo2NAME="$tipo2NAME"
                                                                 :tipo3="$tipo3" :tipo3NAME="$tipo3NAME"
@@ -57,15 +57,7 @@
 
                         </ol>
                     </div>
-                </div>
-
-                <h1 class="text-2xl border-b-4 border-gray-500 m-4">OTRO REPORTE</h1>
-                <p class="mx-4 transform -skew-y-12 absolute gap-x-0"><strong>NOTAS:</strong></p>
-                <p class="pl-[80px]">👻 AQUI PODEMOS PONER OTROS REPORTES O PODEMOS PONER BOTONES PARA EXPORTAR EN EXCEL</p>
-                <p class="m-4">HICE UN REPORTE DE TAMIZAJES Y SU CÓDIGO, SI QUIEREN VERLO VAYAN A <strong>http://127.0.0.1:8000/reporte-prueba</strong> Estoy mejorandolo 🤠</p>
-
-                
-                
+                </div>                
             </div>
         </div>
     </div>

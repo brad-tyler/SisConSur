@@ -48,7 +48,7 @@
                 </div>
             </form>
         </x-authentication-card>
-        <img src="https://img.freepik.com/foto-gratis/doctora-vacunando-su-colega_23-2148880502.jpg?t=st=1711811051~exp=1711814651~hmac=1987e6aa1d20ef4f9788de6b2c104e122f8773b940640b5763e1a93cbcd1375d&w=1060" alt="" class="col-span-2 h-full opacity-95">
+        <img src="https://medicaelmarques.com/wp-content/uploads/2021/11/examen-medico-laboral.jpg.webp" alt="" class="col-span-2 h-full opacity-95">
     </div>
 
 </x-guest-layout>
