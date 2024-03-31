@@ -86,6 +86,42 @@ class PruebaController extends Controller
         $tipo2 = Prueba::all()->where('tamizaje_id', '2')->count();
         $nombre_2 = Tamizaje::find(2);
         $tipo2NAME = $nombre_2->NAME;
-        return view('reporte-prueba', compact('tipo1','tipo1NAME', 'tipo2','tipo2NAME'));
+
+        $tipo3 = Prueba::all()->where('tamizaje_id', '3')->count();
+        $nombre_3 = Tamizaje::find(3);
+        $tipo3NAME = $nombre_3->NAME;
+
+        $tipo4 = Prueba::all()->where('tamizaje_id', '4')->count();
+        $nombre_4 = Tamizaje::find(4);
+        $tipo4NAME = $nombre_4->NAME;
+
+        $tipo5 = Prueba::all()->where('tamizaje_id', '5')->count();
+        $nombre_5 = Tamizaje::find(5);
+        $tipo5NAME = $nombre_5->NAME;
+
+        $tipo6 = Prueba::all()->where('tamizaje_id', '6')->count();
+        $nombre_6 = Tamizaje::find(6);
+        $tipo6NAME = $nombre_6->NAME;
+
+        $tipo7 = Prueba::all()->where('tamizaje_id', '7')->count();
+        $nombre_7 = Tamizaje::find(7);
+        $tipo7NAME = $nombre_7->NAME;
+
+        // Validar los datos del formulario si es necesario
+        $adultos = Pacient::all()->where('TIPO', 'ADULTO')->count();
+        $adolecentes = Pacient::all()->where('TIPO', 'ADOLECENTE')->count();
+        $gestantes = Pacient::all()->where('TIPO', 'GESTANTE')->count();
+        $ninos = Pacient::all()->where('TIPO', 'INFANTE')->count();
+        $filtro = 'none';
+
+        return view('reporte', compact(  'tipo1','tipo1NAME', 
+                                                'tipo2','tipo2NAME',
+                                                'tipo3','tipo3NAME',
+                                                'tipo4','tipo4NAME',
+                                                'tipo5','tipo5NAME',
+                                                'tipo6','tipo6NAME',
+                                                'tipo7','tipo7NAME',
+                                                'adultos','adolecentes', 'gestantes', 'ninos','filtro'
+                                            ));
     }
 }

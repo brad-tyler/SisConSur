@@ -32,7 +32,7 @@ Route::middleware([
     Route::redirect('/', 'dashboard');
     Route::get('/dashboard', [PacientController::class, 'index'])->name('dashboard');    //redundancia en las rutas ojo
 
-    Route::get('/reporte', [PacientController::class, 'mostrar_reporte'])->name('reporte');    //redundancia en las rutas ojo
+    Route::get('/reporte', [PruebaController::class, 'reporte_tipo_tamizaje'])->name('reporte');    //redundancia en las rutas ojo    
 
     Route::get('/reporte-prueba', [PruebaController::class, 'reporte_tipo_tamizaje'])->name('reporte-prueba');    //redundancia en las rutas ojo
 
@@ -44,8 +44,7 @@ Route::middleware([
     Route::post('/pacientes-store', [PacientController::class, 'store'])->name('pacientes.store'); // INSERTAR PACIENTE
 
     //insertar prueba
-    Route::post('/registrar-prueba/{id}',[PruebaController::class,'insertar'])->name('registrarprueba');
-    
+    Route::post('/registrar-prueba/{id}', [PruebaController::class, 'insertar'])->name('registrarprueba');
+
     Route::get('/admin.index', [AdminController::class, 'index'])->name('admin.index');
-    
 });
