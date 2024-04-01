@@ -18,7 +18,7 @@ use Carbon\Carbon;
 
 class PruebaController extends Controller
 {
-    
+
     //
     public function index()
     {
@@ -38,12 +38,12 @@ class PruebaController extends Controller
         //$tamizajes_totales = Prueba::where('pacient_id','=',$id)->get();
 
         $nueva_prueba = new Prueba;
-        $nueva_prueba->pacient()->associate(Pacient::where('id','=',$id)->first());
-        $nueva_prueba->tamizaje()->associate(Tamizaje::where('id','=',$formulario->input('tamizaje'))->first());
-        $nueva_prueba->user()->associate(User::where('id','=', Auth::user()->id )->first());
+        $nueva_prueba->pacient()->associate(Pacient::where('id', '=', $id)->first());
+        $nueva_prueba->tamizaje()->associate(Tamizaje::where('id', '=', $formulario->input('tamizaje'))->first());
+        $nueva_prueba->user()->associate(User::where('id', '=', Auth::user()->id)->first());
         $nueva_prueba->ESTADO =  $formulario->input('estado');
         $nueva_prueba->LUGAR = $formulario->input('lugar');
-        
+
         $now = Carbon::now();
         $nueva_prueba->created_at = $now;
         $nueva_prueba->updated_at = $now;
@@ -64,28 +64,51 @@ class PruebaController extends Controller
 
         $fecha = Carbon::parse($registro->created_at);
         $fecha_formato = $fecha->toDateString();
-        
+
         $year = $fecha->format('y');
         $mes = $fecha->format('m');
         $dia = $fecha->format('d');
 
 
 
-        return response()->json(['paciente'=>$a , 'doctor'=>$b , 'fecha'=>$dia.'-'.$mes.'-'.$year , 'estado'=>$registro->ESTADO]);
+        return response()->json(['paciente' => $a, 'doctor' => $b, 'fecha' => $dia . '-' . $mes . '-' . $year, 'estado' => $registro->ESTADO]);
     }
 
     public function reporte_tipo_tamizaje(Request $request)
     {
         // Validar los datos del formulario si es necesario
 
-        
+
         $tipo1 = Prueba::all()->where('tamizaje_id', '1')->count();
         $nombre_1 = Tamizaje::find(1);
         $tipo1NAME = $nombre_1->NAME;
-        
+
         $tipo2 = Prueba::all()->where('tamizaje_id', '2')->count();
         $nombre_2 = Tamizaje::find(2);
         $tipo2NAME = $nombre_2->NAME;
-        return view('reporte-prueba', compact('tipo1','tipo1NAME', 'tipo2','tipo2NAME'));
+        return view('reporte-prueba', compact('tipo1', 'tipo1NAME', 'tipo2', 'tipo2NAME'));
     }
+
+    public function update(Request $request, $id)
+    {
+    // Validar los datos del formulario
+    $request->validate([
+        'tamizaje_id' => 'required',
+        'estado' => 'required',
+        'lugar' => 'required',
+    ]);
+
+    // Actualizar los datos de la prueba
+    $prueba = Prueba::findOrFail($id);
+    $prueba->tamizaje_id = $request->input('tamizaje_id');
+    $prueba->ESTADO = $request->input('estado');
+    $prueba->LUGAR = $request->input('lugar');
+    
+    $prueba->save();
+
+    // Redirigir o responder según sea necesario
+    return redirect()->back()->with('success', 'Prueba actualizada correctamente.');
+    }
+
+    
 }

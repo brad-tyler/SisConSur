@@ -77,7 +77,7 @@
     
     <div class="grid grid-cols-1 lg:grid-cols-2 gap-4 m-2">
         
-        <x-datos-circular-columns :adultos="$adultos" :adolecentes="$adolecentes" :gestantes="$gestantes" :ninos="$ninos" :userLabels="$userLabels"  :userCounts="$userCounts"/>
+        <x-datos-circular-columns :adultos="$adultos" :adolecentes="$adolecentes" :gestantes="$gestantes" :ninos="$ninos" :tamizajeLabels="$tamizajeLabels" :estado1Counts="$estado1Counts" :estado2Counts="$estado2Counts"/>
         <x-listado-user :usuarios="$usuarios"/>
     </div>
     

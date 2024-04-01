@@ -30,11 +30,11 @@ Route::middleware([
     //     return view('dashboard');               
     // })->name('dashboard');
     Route::redirect('/', 'dashboard');
-    Route::get('/dashboard', [PacientController::class, 'index'])->name('dashboard');    //redundancia en las rutas ojo
+    Route::get('/dashboard', [PacientController::class, 'index'])->name('dashboard');   
 
-    Route::get('/reporte', [PacientController::class, 'mostrar_reporte'])->name('reporte');    //redundancia en las rutas ojo
+    Route::get('/reporte', [PacientController::class, 'mostrar_reporte'])->name('reporte');    
 
-    Route::get('/reporte-prueba', [PruebaController::class, 'reporte_tipo_tamizaje'])->name('reporte-prueba');    //redundancia en las rutas ojo
+    Route::get('/reporte-prueba', [PruebaController::class, 'reporte_tipo_tamizaje'])->name('reporte-prueba'); 
 
     Route::get('/detallestamizaje/{id}', [PruebaController::class, 'detallesPrueba'])->name('tamizajedetalles');
 
@@ -47,5 +47,8 @@ Route::middleware([
     Route::post('/registrar-prueba/{id}',[PruebaController::class,'insertar'])->name('registrarprueba');
     
     Route::get('/admin.index', [AdminController::class, 'index'])->name('admin.index');
+
+    Route::put('/actualizar-prueba/{id}', [PruebaController::class, 'update'])->name('actualizarprueba');
+
     
 });

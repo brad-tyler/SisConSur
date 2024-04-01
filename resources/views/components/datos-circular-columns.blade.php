@@ -67,110 +67,45 @@
             });
         });
 
-        // document.addEventListener("DOMContentLoaded", function() {
-
-        //     var userLabels = @json($userLabels);
-        //     var userCounts = @json($userCounts);
-        //     // Create the chart
-        //     Highcharts.chart('charts', {
-        //         chart: {
-        //             type: 'column'
-        //         },
-        //         title: {
-        //             align: 'center',
-        //             text: 'Tamizajes tipos de pacientes, 202-'
-        //         },
-        //         accessibility: {
-        //             announceNewData: {
-        //                 enabled: true
-        //             }
-        //         },
-        //         xAxis: {
-        //             categories: userLabels,
-        //             title: {
-        //                 text: 'User ID'
-        //             }
-        //         },
-        //         yAxis: {
-        //             title: {
-        //                 text: 'Cantidad Total'
-        //             }
-        //         },
-        //         legend: {
-        //             enabled: false
-        //         },
-        //         plotOptions: {
-        //             series: {
-        //                 borderWidth: 0,
-        //                 dataLabels: {
-        //                     enabled: true,
-        //                     // format: '{point.y:.1f} tam'    
-        //                     format: '{point.y} tam'             //para numero entero arriba para decimal (point.y:.1f) numero con un decimal
-        //                 }
-        //             }
-        //         },
-
-        //         tooltip: {
-        //             headerFormat: '<span style="font-size:11px">{series.name}</span><br>',
-        //             pointFormat: '<span style="color:{point.color}">{point.name}</span>: <b>{point.y} tamizajes</b> del total<br/>'
-        //         },
-        //         // usercount   usersPruebasCount
-        //         // series: [{
-        //         //     name: 'TIPO',
-        //         //     colorByPoint: true,
-        //         //     data: [{
-        //         //         name: 'ADULTOS',
-        //         //         y: {{ $adultos }},
-        //         //     }, {
-        //         //         name: 'ADOLESCENTES',
-        //         //         y: {{ $adolecentes }}
-        //         //     }, {
-        //         //         name: 'GESTANTES',
-        //         //         y: {{ $gestantes }}
-        //         //     }, {
-        //         //         name: 'NIÑOS',
-        //         //         y: {{ $ninos }}
-        //         //     }]
-        //         // }],
-        //         series: [{
-        //             name: 'TIPO',
-        //             colorByPoint: true,
-        //             data: [{
-        //                 name: 'Cantidad Total',
-        //                 data: userCounts
-        //             }]
-        //         }],
-        //     });
-
-        // });
-        document.addEventListener("DOMContentLoaded", function() {
-            var userLabels = @json($userLabels);
-            var userCounts = @json($userCounts);
-
-            // Create the chart
-            Highcharts.chart('charts', {
-                chart: {
-                    type: 'column'
-                },
+        Highcharts.chart('charts', {
+            chart: {
+                type: 'column'
+            },
+            title: {
+                text: 'Cantidad de tamizajes por tipo, 202-',
+                align: 'center'
+            },
+            xAxis: {
+                categories: @json($tamizajeLabels),
+                crosshair: true,
+                accessibility: {
+                    description: 'tamizajes'
+                }
+            },
+            yAxis: {
+                min: 0,
                 title: {
-                    align: 'center',
-                    text: 'Tamizajes tipos de pacientes, 202-'
+                    text: 'Cantidad de tamizajes'
+                }
+            },
+            plotOptions: {
+                column: {
+                    pointPadding: 0.2,
+                    borderWidth: 0
+                }
+            },
+            // tooltip: {
+            //     headerFormat: '<span style="font-size:11px">{series.name}</span><br>',
+            //     pointFormat: '<span style="color:{point.color}">{point.name}</span>: <b>{point.y:.2f}%</b> of total<br/>'
+            // },
+            series: [{
+                    name: 'Positivos',
+                    data: @json($estado1Counts)
                 },
-                xAxis: {
-                    categories: userLabels,
-                    title: {
-                        text: 'User ID'
-                    }
-                },
-                yAxis: {
-                    title: {
-                        text: 'Cantidad Total'
-                    }
-                },
-                series: [{
-                    name: 'Cantidad Total',
-                    data: userCounts
-                }]
-            });
+                {
+                    name: 'Negativos',
+                    data: @json($estado2Counts)
+                }
+            ]
         });
     </script>

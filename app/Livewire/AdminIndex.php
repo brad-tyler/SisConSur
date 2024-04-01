@@ -3,6 +3,8 @@
 namespace App\Livewire;
 
 use App\Models\Pacient;
+use App\Models\Prueba;
+use App\Models\Tamizaje;
 use App\Models\User;
 use Illuminate\Support\Facades\DB;
 use Livewire\Component;
@@ -18,26 +20,30 @@ class AdminIndex extends Component
         $ninos = Pacient::all()->where('TIPO', 'INFANTE')->count();
         $filtro = 'none';
         $usuarios = User::orderBy('id', 'DESC')->paginate();
-        $usercount = User::all();//->count();       //para obtener los usuarios
-        // SELECT user_id, COUNT(*) AS cantidad_total
-        // FROM pruebas
-        // GROUP BY user_id;
-        $usersPruebasCount = DB::table('pruebas')
-            ->select('user_id', DB::raw('COUNT(*) as cantidad_total'))
-            ->groupBy('user_id')
-            ->get();
+        $usercount = User::all(); //->count();       //para obtener los usuarios
+
+        $tamizajes = Tamizaje::all();
+
+        $tamizajeLabels = [];
+        $estado1Counts = [];
+        $estado2Counts = [];
+
+        foreach ($tamizajes as $tamizaje) {
+            $tamizajeLabels[] = $tamizaje->NAME; // Ajustar la propiedad de nombre del tamizaje
+            // positivos
+            $positivos = Prueba::where('tamizaje_id', $tamizaje->id)
+                ->where('estado', '1')
+                ->count();
+            $estado1Counts[] = $positivos;
         
-        $userNames = User::whereIn('id', $usersPruebasCount->pluck('user_id'))->pluck('name', 'id');
-
-        $userLabels = [];
-        $userCounts = [];
-
-        foreach ($usersPruebasCount as $userPruebasCount) {
-            $userLabels[] = $userNames[$userPruebasCount->user_id];
-            $userCounts[] = $userPruebasCount->cantidad_total;
+            // negativos
+            $negativos = Prueba::where('tamizaje_id', $tamizaje->id)
+                ->where('estado', '0')
+                ->count();
+            $estado2Counts[] = $negativos;
         }
 
-        return view('livewire.admin-index', compact('pacientes','adultos','adolecentes', 'gestantes', 'ninos','filtro', 'usuarios', 'userLabels', 'userCounts'));
+        return view('livewire.admin-index', compact('pacientes', 'adultos', 'adolecentes', 'gestantes', 'ninos', 'filtro', 'usuarios', 'tamizajeLabels', 'estado1Counts', 'estado2Counts'));
     }
     // laravel-liveware-tables      paquete para datatables
 }
