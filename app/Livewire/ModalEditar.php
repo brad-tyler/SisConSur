@@ -2,15 +2,17 @@
 
 namespace App\Livewire;
 
+use App\Models\Pacient;
 use App\Models\Prueba;
+use App\Models\Tamizaje;
 use App\Models\User;
-use Carbon\Carbon;
 use Livewire\Component;
 
-class ModalDetalles extends Component
+class ModalEditar extends Component
 {
-    public $prueba;
     public $open = false;
+    public $name; 
+    public $prueba;
 
     public function mount(Prueba $prueba)
     {
@@ -21,6 +23,7 @@ class ModalDetalles extends Component
     {
         $detalle = Prueba::find($this->prueba->id); // Usamos $this->prueba para obtener el ID de la prueba
         $user = User::all();
-        return view('livewire.modal-detalles', compact('detalle', 'user'));
+        $tamizajes = Tamizaje::all();        
+        return view('livewire.modal-editar', compact('tamizajes','detalle', 'user'));
     }
 }

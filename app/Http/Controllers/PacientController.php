@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use \App\Models\Pacient;
+use App\Models\Prueba;
 
 class PacientController extends Controller
 {
@@ -14,7 +15,7 @@ class PacientController extends Controller
         $pacientes = Pacient::orderBy('id', 'DESC')->paginate(10); // Obtiene los datos de la base de datos mediante el modelo
         $filtro = 'none';
 
-        return view('dashboard', compact('pacientes','filtro'));
+        return view('dashboard', compact('pacientes', 'filtro'));
     }
 
 

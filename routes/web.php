@@ -32,14 +32,13 @@ Route::middleware([
     // })->name('dashboard');
     
     Route::redirect('/', 'dashboard');
-
     Route::get('/dashboard', [PacientController::class, 'index'])->name('dashboard');    //redundancia en las rutas ojo
 
     Route::get('/reporte', [PruebaController::class, 'reporte_tipo_tamizaje'])->name('reporte');    //redundancia en las rutas ojo   
     
     Route::get('/doctores', [Controller::class, 'listadoctores'])->name('doctores');
 
-    Route::get('/reporte-prueba', [PruebaController::class, 'reporte_tipo_tamizaje'])->name('reporte-prueba');    //redundancia en las rutas ojo
+    Route::get('/reporte-prueba', [PruebaController::class, 'reporte_tipo_tamizaje'])->name('reporte-prueba'); 
 
     Route::get('/detallestamizaje/{id}', [PruebaController::class, 'detallesPrueba'])->name('tamizajedetalles');
 
@@ -54,8 +53,4 @@ Route::middleware([
     Route::post('/registrar-doctor', [Controller::class, 'registrardoctor'])->name('registrardoctor');
 
     Route::get('/admin.index', [AdminController::class, 'index'])->name('admin.index');
-
-    //cambiarestado del toggle
-    Route::get('cambiar-estado/{id}', [Controller::class, 'cambiarEstado'])->name('cambiar_estado');
-
 });
