@@ -19,6 +19,14 @@ class DatabaseSeeder extends Seeder
 
         $this->call(TamizajeSeeder::class);
 
+
+        User::factory()->create([
+            'name' => 'henry',
+            'email' => 'test@example.com',
+            'password' => bcrypt('1234678'),
+            'estado' => true,
+        ]);
+
         User::factory(10)->create();
 
         Pacient::factory(10)->create();
@@ -29,9 +37,6 @@ class DatabaseSeeder extends Seeder
 
         //
 
-        // \App\Models\User::factory()->create([
-        //     'name' => 'Test User',
-        //     'email' => 'test@example.com',
-        // ]);
+        
     }
 }

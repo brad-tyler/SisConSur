@@ -4,6 +4,7 @@ use App\Http\Controllers\AdminController;
 use App\Http\Controllers\PruebaController;
 use App\Http\Controllers\PacientController;
 use App\Http\Controllers\TamizajeController;
+use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -29,10 +30,14 @@ Route::middleware([
     // Route::get('/dashboard', function () {
     //     return view('dashboard');               
     // })->name('dashboard');
+    
     Route::redirect('/', 'dashboard');
+
     Route::get('/dashboard', [PacientController::class, 'index'])->name('dashboard');    //redundancia en las rutas ojo
 
-    Route::get('/reporte', [PruebaController::class, 'reporte_tipo_tamizaje'])->name('reporte');    //redundancia en las rutas ojo    
+    Route::get('/reporte', [PruebaController::class, 'reporte_tipo_tamizaje'])->name('reporte');    //redundancia en las rutas ojo   
+    
+    Route::get('/doctores', [Controller::class, 'listadoctores'])->name('doctores');
 
     Route::get('/reporte-prueba', [PruebaController::class, 'reporte_tipo_tamizaje'])->name('reporte-prueba');    //redundancia en las rutas ojo
 
@@ -46,5 +51,11 @@ Route::middleware([
     //insertar prueba
     Route::post('/registrar-prueba/{id}', [PruebaController::class, 'insertar'])->name('registrarprueba');
 
+    Route::post('/registrar-doctor', [Controller::class, 'registrardoctor'])->name('registrardoctor');
+
     Route::get('/admin.index', [AdminController::class, 'index'])->name('admin.index');
+
+    //cambiarestado del toggle
+    Route::get('cambiar-estado/{id}', [Controller::class, 'cambiarEstado'])->name('cambiar_estado');
+
 });

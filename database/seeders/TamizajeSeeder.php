@@ -22,7 +22,8 @@ class TamizajeSeeder extends Seeder
                         ['NAME' => 'PSICOSIS', 'CODIGO' => '04'],
                         ['NAME' => 'DETERIORO COGNITIVO-DEMENCIA EN PERSONAS DE 60 AÑOS Y MAS', 'CODIGO' => '06'],
                         ['NAME' => 'TRANSTORNOS MENTALES Y DEL COMPORTAMIENTO DE NIÑOS, NIÑAS Y ADOLESCENTES DE 3 A 17 AÑOS', 'CODIGO' => '07'],
-                        ['NAME' => 'PREVENCION DE RIESGOS EN SALUD MENTAL', 'CODIGO' => '08']
+                        ['NAME' => 'PREVENCION DE RIESGOS EN SALUD MENTAL', 'CODIGO' => '08'],
+                        ['NAME' => 'HABILIDADES SOCIALES', 'CODIGO' => '09']
                     ];
         DB::table('tamizajes')->insert($tamizajes);
     }
