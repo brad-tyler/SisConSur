@@ -47,5 +47,7 @@ Route::middleware([
     Route::post('/registrar-prueba/{id}', [PruebaController::class, 'insertar'])->name('registrarprueba');
 
     Route::get('/admin.index', [AdminController::class, 'index'])->name('admin.index');
-    
+   
+    Route::put('/editarprueba/{id}', [PruebaController::class, 'update'])->name('actualizarprueba');
+
 });
