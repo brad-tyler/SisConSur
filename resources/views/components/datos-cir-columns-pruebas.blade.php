@@ -63,14 +63,17 @@
                     name: 'Tipo 4',
                     y: {{ $tipo4 }}
                 }, {
-                    name: 'Tipo 5',
+                    name: 'Tipo 6',
                     y: {{ $tipo5 }}
                 }, {
-                    name: 'Tipo 6',
+                    name: 'Tipo 7',
                     y: {{ $tipo6 }}
                 }, {
-                    name: 'Tipo 7',
+                    name: 'Tipo 8',
                     y: {{ $tipo7 }}
+                }, {
+                    name: 'Tipo 9',
+                    y: {{ $tipo8 }}
                 }]
             }]
         });
