@@ -13,8 +13,7 @@ use \App\Models\User;
 
 //para las fechas
 use Carbon\Carbon;
-
-
+use Spatie\Permission\Models\Role;
 
 class PruebaController extends Controller
 {
@@ -23,7 +22,8 @@ class PruebaController extends Controller
     public function index()
     {
         $pruebas = Prueba::orderBy('id', 'DESC')->paginate(); // Obtiene los datos de la base de datos mediante el modelo
-        return view('dashboard', compact('pruebas'));
+        $roles = Role::all();
+        return view('dashboard', compact('pruebas', 'roles'));
     }
 
 

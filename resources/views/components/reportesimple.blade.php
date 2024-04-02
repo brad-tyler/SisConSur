@@ -11,11 +11,7 @@
                 </svg>
             </div>
         </div>
-        <a href="#">
-            <div class="bg-blue-500 w-full flex justify-center text-white mt-2 hover:bg-blue-600 rounded-b-lg">
-                Mas información ➡
-            </div>
-        </a>
+        
     </div>
 
     <div class="bg-green-400 m-4 rounded-lg">
@@ -30,11 +26,7 @@
                 </svg>
             </div>
         </div>
-        <a href="#">
-            <div class="bg-green-500 w-full flex justify-center text-white mt-2 hover:bg-green-600 rounded-b-lg">
-                Mas información ➡
-            </div>
-        </a>
+        
     </div>
 
     <div class="bg-yellow-400 m-4 rounded-lg">
@@ -49,11 +41,7 @@
                 </svg>
             </div>
         </div>
-        <a href="#">
-            <div class="bg-yellow-500 w-full flex justify-center text-white mt-2 hover:bg-yellow-600 rounded-b-lg">
-                Mas información ➡
-            </div>
-        </a>
+        
     </div>
 
     <div class="bg-red-400 m-4 rounded-lg">
@@ -68,11 +56,7 @@
                 </svg>
             </div>
         </div>
-        <a href="#">
-            <div class="bg-red-500 w-full flex justify-center text-white mt-2 hover:bg-red-600 rounded-b-lg">
-                Mas información ➡
-            </div>
-        </a>
+        
     </div>
 </div>
 

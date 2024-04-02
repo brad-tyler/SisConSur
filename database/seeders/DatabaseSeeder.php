@@ -27,6 +27,13 @@ class DatabaseSeeder extends Seeder
             'estado' => true,
         ]);
 
+        User::factory()->create([
+            'name' => 'Admin',
+            'email' => 'admin@admin.com',
+            'password' => bcrypt('passwordadmin'),
+            'estado' => true,
+        ]);
+
         User::factory(10)->create();
 
         Pacient::factory(1000)->create();

@@ -77,7 +77,9 @@
         </tbody>
     </table>
 <br>
-{{ $pacientes->links() }}
+<div class="bg-gray-100 text-white">
+    {{ $pacientes->links() }}
+</div>
 </div>
 
 

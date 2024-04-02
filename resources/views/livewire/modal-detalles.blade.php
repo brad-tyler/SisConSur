@@ -46,7 +46,9 @@
             </div>
             <div class="opacity-80 h-px mt-4 md:mb-4" style="background: linear-gradient(to right, rgba(200, 200, 200, 0) 0%, rgba(200, 200, 200, 1) 30%, rgba(200, 200, 200, 1) 70%, rgba(200, 200, 200, 0) 100%);"></div>
             <div class="m-1 flex justify-end">
+                @role('admin')
                 @livewire('modal-editar', ['prueba' => $prueba], key($prueba->id))
+                @endrole
                 {{-- <button class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded mx-4">IMPRIMIR</button> --}}
                 <button wire:click="$set('open', false)" class="bg-red-500 hover:bg-red-700 text-white font-bold py-2 px-4 rounded mx-4">CERRAR</button>
             </div>

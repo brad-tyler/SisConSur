@@ -12,7 +12,7 @@
                     type: 'pie'
                 },
                 title: {
-                    text: 'Porcentajes de tamizajes, 202-',
+                    text: 'Porcentajes de tamizajes',
                     align: 'center'
                 },
                 tooltip: {
@@ -72,7 +72,7 @@
                 type: 'column'
             },
             title: {
-                text: 'Cantidad de tamizajes por tipo, 202-',
+                text: 'Cantidad de tamizajes por tipo',
                 align: 'center'
             },
             xAxis: {
