@@ -8,9 +8,10 @@
     <div class="py-12">
         <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
 
-            @role('admin')
+            @role('inactivo|admin')
             @livewire('modal-nuevo-doctor')
             @endrole
+
 
             <br>
 
@@ -27,34 +28,30 @@
                 </thead>
                 <tbody>
                     @foreach ($doctores as $doctor)
-                        @if ($doctor->id != Auth::user()->id)
-                            <tr id="{{ $doctor->id }}" class="border-b border-gray-700 hover:bg-slate-100 text-left">
-                                <td scope="row" class="px-4 text-gray-700">{{ $doctor->id }}</td>
-                                <td class="py-2">{{ $doctor->name }}</td>
-                                <td class="py-2">{{ $doctor->email }}</td>
-                                {{-- @role('admin') --}}
-                                <td class="py-2">
-                                    <label class="inline-flex items-center cursor-pointer">
-                                        <input type="checkbox" value="" class="sr-only peer"
-                                            id="{{ $doctor->id }}" {{ $doctor->estado ? 'checked' : '' }}>
-                                        <div
-                                            class="relative w-11 h-6 bg-gray-200 rounded-full peer peer-focus:ring-4 peer-focus:ring-blue-300 dark:peer-focus:ring-blue-800 dark:bg-gray-700 peer-checked:after:translate-x-full rtl:peer-checked:after:-translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-0.5 after:start-[2px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-5 after:w-5 after:transition-all dark:border-gray-600 peer-checked:bg-blue-600">
-                                        </div>
+                    @if ($doctor->id != Auth::user()->id)
+                    <tr id="{{ $doctor->id }}" class="border-b border-gray-700 hover:bg-slate-100 text-left">
+                        <td scope="row" class="px-4 text-gray-700">{{ $doctor->id }}</td>
+                        <td class="py-2">{{ $doctor->name }}</td>
+                        <td class="py-2">{{ $doctor->email }}</td>
+                        {{-- @role('admin') --}}
+                        <td class="py-2">
+                            <label class="inline-flex items-center cursor-pointer">
+                                <input type="checkbox" value="" class="sr-only peer" id="{{ $doctor->id }}" {{ $doctor->estado ? 'checked' : '' }}>
+                                <div class="relative w-11 h-6 bg-gray-200 rounded-full peer peer-focus:ring-4 peer-focus:ring-blue-300 dark:peer-focus:ring-blue-800 dark:bg-gray-700 peer-checked:after:translate-x-full rtl:peer-checked:after:-translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-0.5 after:start-[2px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-5 after:w-5 after:transition-all dark:border-gray-600 peer-checked:bg-blue-600">
+                                </div>
 
-                                        @if ($doctor->estado == true)
-                                            <span
-                                                class="ms-3 text-sm font-medium text-gray-500 dark:text-gray-800">Habilitado</span>
-                                        @else
-                                            <span
-                                                class="ms-3 text-sm font-medium text-gray-500 dark:text-gray-300">Desabilitado</span>
-                                        @endif
+                                @if ($doctor->estado == true)
+                                <span class="ms-3 text-sm font-medium text-gray-500 dark:text-gray-800">Habilitado</span>
+                                @else
+                                <span class="ms-3 text-sm font-medium text-gray-500 dark:text-gray-300">Desabilitado</span>
+                                @endif
 
 
-                                    </label>
-                                </td>
-                                {{-- @endrole --}}
-                            </tr>
-                        @endif
+                            </label>
+                        </td>
+                        {{-- @endrole --}}
+                    </tr>
+                    @endif
                     @endforeach
                 </tbody>
             </table>

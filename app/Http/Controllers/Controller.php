@@ -3,6 +3,8 @@
 namespace App\Http\Controllers;
 
 use \App\Models\User;
+use Spatie\Permission\Models\Role;
+
 use Illuminate\Foundation\Auth\Access\AuthorizesRequests;
 use Illuminate\Foundation\Validation\ValidatesRequests;
 
@@ -29,15 +31,16 @@ class Controller extends BaseController
         $con = $request->input('password');
 
         $con = bcrypt($con);
-    
+
         $doctor =  new User;
-        
+
         $doctor->name = $request->input('name');
         $doctor->email = $request->input('email');
         $doctor->password = $con;
         $doctor->estado = true;
         $doctor->save();
-    
+        $doctor->assignRole("usuario");
+
         return redirect()->route("doctores");
     }
 
@@ -47,8 +50,16 @@ class Controller extends BaseController
         // Encuentra el registro en la base de datos
         $registro = User::findOrFail($id);
 
+        if ($registro->estado == 0) {
+            $registro->syncRoles("usuario");
+        } else {
+            $registro->syncRoles("inactivo");
+        }
+
         // Cambia el estado del registro
         $registro->estado = !$registro->estado; // Por ejemplo, cambia de verdadero a falso o viceversa
+
+        
 
         // Guarda los cambios en la base de datos
         $registro->save();
