@@ -32,7 +32,6 @@
                                 <td scope="row" class="px-4 text-gray-700">{{ $doctor->id }}</td>
                                 <td class="py-2">{{ $doctor->name }}</td>
                                 <td class="py-2">{{ $doctor->email }}</td>
-                                {{-- @role('admin') --}}
                                 <td class="py-2">
                                     <label class="inline-flex items-center cursor-pointer">
                                         <input type="checkbox" value="" class="sr-only peer"
@@ -48,11 +47,8 @@
                                             <span
                                                 class="ms-3 text-sm font-medium text-gray-500 dark:text-gray-300">Desabilitado</span>
                                         @endif
-
-
                                     </label>
                                 </td>
-                                {{-- @endrole --}}
                             </tr>
                         @endif
                     @endforeach

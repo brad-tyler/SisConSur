@@ -23,7 +23,7 @@
                         Dashboard
                     </x-nav-link>
 
-                    @role('admin')
+                    {{-- @role('admin') --}}
                     <x-nav-link href="{{ route('admin.index') }}" :active="request()->routeIs('admin.index')">
                         {{ __('Admin') }}
                     </x-nav-link>
@@ -35,7 +35,7 @@
                     <x-nav-link href="{{ route('doctores') }}" :active="request()->routeIs('doctores')">
                         {{ __('Doctores') }}
                     </x-nav-link>
-                    @endrole
+                    {{-- @endrole --}}
                 </div>
 
             </div>
