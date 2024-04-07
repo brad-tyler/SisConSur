@@ -52,7 +52,7 @@
                 colorByPoint: true,
                 data: [{
                     name: 'Tipo 1',
-                    y: {{ $tipo1 }},
+                    y: {{ $tipo1 }}
                 }, {
                     name: 'Tipo 2',
                     y: {{ $tipo2 }}

@@ -17,7 +17,6 @@ use Spatie\Permission\Models\Role;
 
 class PruebaController extends Controller
 {
-
     //
     public function index()
     {

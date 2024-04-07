@@ -4,6 +4,7 @@
             <x-slot name="logo">
                 <x-authentication-card-logo />
             </x-slot>
+            
             <h1 class="text-2xl font-bold text-center mb-4 border-b-2 text-blue-500 border-blue-500">INICIAR SESION</h1>
 
             <x-validation-errors class="mb-4" />
@@ -48,7 +49,7 @@
                 </div>
             </form>
         </x-authentication-card>
-        <img src="https://medicaelmarques.com/wp-content/uploads/2021/11/examen-medico-laboral.jpg.webp" alt="" class="col-span-2 h-full opacity-95">
+        <img src="logo-derecha.jpg" alt="" class="col-span-2 h-full opacity-95">
     </div>
 
 </x-guest-layout>

@@ -2,8 +2,8 @@
 <div class="p-6 lg:p-8 bg-white border-b border-gray-200">    
         <table class="table-auto w-full ">
             <thead class="text-xs uppercase border-b bg-gray-700 text-white">
-                <tr class="align-center">
-                    <th scope="col" class="px-1 py-2">ID</th>
+                <tr class="text-left">
+                    <th scope="col" class="px-1 pl-5">ID</th>
                     <th scope="col" class="px-1 py-2">Nombre_Usuario</th>
                     <th scope="col" class="px-1 py-2">Correo Electronico</th>
                 </tr>
