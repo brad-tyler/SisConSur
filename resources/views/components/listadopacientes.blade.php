@@ -2,7 +2,7 @@
 
     <!--BUSCADOR EN TIEMPO REAL Y CONSULTANDO A LA BASE DE DATOS-->
 
-    <div class="flex justify-between mb-4">
+    <div class="overflow-scroll flex justify-between mb-4">
         @livewire('modal-crear')
 
         <div class="flex">
@@ -20,8 +20,8 @@
         </div>
 
     </div>
-
-    <table class="table-auto w-full rounded">
+    <div class="relative overflow-x-auto bg-white rounded-lg">
+    <table class="table-fixed min-w-full text-sm text-left text-gray-800">
         <thead class="text-s uppercase border-b bg-gray-700 rounded text-white font-bold">
             <tr class="text-left">
                 <th scope="col" class="px-[1.2rem] py-2">ID</th>
@@ -78,6 +78,7 @@
     </table>
     <br>
     {{ $pacientes->links() }}
+    </div>
 </div>
 
 

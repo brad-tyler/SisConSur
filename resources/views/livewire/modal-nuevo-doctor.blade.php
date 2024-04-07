@@ -2,7 +2,7 @@
 {{-- If your happiness depends on money, you will never be happy with yourself. --}}
 
 
-        <button wire:click="$set('open', true)" class="bg-green-500 hover:bg-green-600 text-white font-bold py-2 px-4 rounded">
+        <button wire:click="$set('open', true)" class="bg-green-500 hover:bg-green-600 text-white font-bold py-2 px-4 rounded mx-2">
             Nuevo Doctor
         </button>
 
