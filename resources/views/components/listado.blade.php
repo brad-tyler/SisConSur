@@ -1,17 +1,17 @@
-<div class="p-6 lg:p-8 bg-white border-b border-gray-200">
+<div class="relative overflow-x-auto bg-white rounded-lg">
     {{-- <x-application-logo class="block h-12 w-auto" /> --}}
     {{-- <h2>lo puse en la misma raiz veamos q pasa :v </h2> --}}
     
-        <table class="table-auto w-full ">
-            <thead class="text-xs uppercase border-b bg-gray-700 ">
+        <table class="table-fixed min-w-full text-sm text-left text-gray-800">
+            <thead class="text-s uppercase border-b bg-gray-700 rounded text-white font-bold">
                 <tr class="align-center">
                     <th scope="col" class="px-1 py-2">Id prueba</th>
-                    <th scope="col" class="px-1 py-2">Nombre_P</th>
-                    <th scope="col" class="px-1 py-2">DNI_P</th>
-                    <th scope="col" class="px-1 py-2">Edad_P</th>
-                    <th scope="col" class="px-1 py-2">Genero_P</th>
+                    <th scope="col" class="px-1 py-2">Paciente</th>
+                    <th scope="col" class="px-1 py-2">DNI</th>
+                    <th scope="col" class="px-1 py-2">Edad</th>
+                    <th scope="col" class="px-1 py-2">Genero</th>
                     <th scope="col" class="px-1 py-2">Tamizaje</th>
-                    <th scope="col" class="px-1 py-2">Personal_A</th>
+                    <th scope="col" class="px-1 py-2">Doctor</th>
                 </tr>
             </thead>
             <tbody>

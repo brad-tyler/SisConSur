@@ -5,25 +5,18 @@
         </h2>
     </x-slot>
 
-    <div class="py-12">
-        <div class="relative overflow-x-auto bg-white rounded-lg py-4">
-
-            @role('inactivo|admin')
-            @livewire('modal-nuevo-doctor')
-            @endrole
-
-
-            <br>
-
-            <table class="table-auto w-full rounded">
+    <div class=" m-12 p-6 bg-white border-b border-gray-200 rounded-lg">
+        @role('inactivo|admin')
+        @livewire('modal-nuevo-doctor')
+        @endrole
+        <div class="relative overflow-x-auto bg-white rounded-lg mt-4">
+            <table class="table-fixed min-w-full text-sm text-left text-gray-800">
                 <thead class="text-s uppercase border-b bg-gray-700 rounded text-white font-bold">
                     <tr class="text-left">
                         <th scope="col" class="px-[1.2rem] py-2">ID</th>
                         <th scope="col" class="px-1 py-2">NOMBRES</th>
-                        <th scope="col" class="px-1 py-2">GMAIL</th>
-                        {{-- @role('admin') --}}
-                        <th scope="col" class="px-1 py-2">ACCIONES</th>
-                        {{-- @endrole --}}
+                        <th scope="col" class="px-1 py-2">GMAIL</th>                        
+                        <th scope="col" class="px-1 py-2">ACCIONES</th>                        
                     </tr>
                 </thead>
                 <tbody>
@@ -32,8 +25,7 @@
                     <tr id="{{ $doctor->id }}" class="border-b border-gray-700 hover:bg-slate-100 text-left">
                         <td scope="row" class="px-4 text-gray-700">{{ $doctor->id }}</td>
                         <td class="py-2">{{ $doctor->name }}</td>
-                        <td class="py-2">{{ $doctor->email }}</td>
-                        {{-- @role('admin') --}}
+                        <td class="py-2">{{ $doctor->email }}</td>                        
                         <td class="py-2">
                             <label class="inline-flex items-center cursor-pointer">
                                 <input type="checkbox" value="" class="sr-only peer" id="{{ $doctor->id }}" {{ $doctor->estado ? 'checked' : '' }}>
@@ -48,8 +40,7 @@
 
 
                             </label>
-                        </td>
-                        {{-- @endrole --}}
+                        </td>                        
                     </tr>
                     @endif
                     @endforeach

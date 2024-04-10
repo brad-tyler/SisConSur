@@ -22,6 +22,7 @@ class AdminIndex extends Component
         $usuarios = User::orderBy('id', 'DESC')->paginate();
         $usercount = User::all(); //->count();       //para obtener los usuarios
 
+        $pruebas = Prueba::orderBy('id', 'DESC')->paginate();;
         $tamizajes = Tamizaje::all();
 
         $tamizajeLabels = [];
@@ -43,7 +44,7 @@ class AdminIndex extends Component
             $estado2Counts[] = $negativos;
         }
 
-        return view('livewire.admin-index', compact('pacientes', 'adultos', 'adolecentes', 'gestantes', 'ninos', 'filtro', 'usuarios', 'tamizajeLabels', 'estado1Counts', 'estado2Counts'));
+        return view('livewire.admin-index', compact('pacientes', 'adultos', 'adolecentes', 'gestantes', 'ninos', 'filtro', 'usuarios', 'tamizajeLabels', 'estado1Counts', 'estado2Counts', 'pruebas'));
     }
     // laravel-liveware-tables      paquete para datatables
 }
