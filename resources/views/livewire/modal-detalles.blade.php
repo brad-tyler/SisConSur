@@ -51,24 +51,19 @@
         <x-slot name="content">
             <div class="m-4">
                 <div class="m-4">
-                    <label for="paciente">PACIENTE:</label>
-                    <label for="paciente"> {{$prueba->pacient->NAME}} </label>
+                    <p for="paciente">PACIENTE: {{$prueba->pacient->NAME}}</p>
                 </div>
                 <div class="m-4">
-                    <label for="doctor">DOCTOR:</label>
-                    <label for="doctor"> {{$prueba->user->name}} </label>
+                    <p for="doctor">DOCTOR: {{$prueba->user->name}}</p>
                 </div>
                 <div class="m-4">
-                    <label for="lugar">LUGAR DE LA PRUEBA:</label>
-                    <label for="surname"> {{$prueba->LUGAR}} </label>
+                    <p for="lugar">LUGAR DE LA PRUEBA: {{$prueba->LUGAR}}</p>
                 </div>
                 <div class="m-4">
-                    <label for="fecha">FECHA DE TAMIZAJE:</label>
-                    <label for="fecha"> {{$prueba->created_at}} </label>
+                    <p for="fecha">FECHA DE TAMIZAJE: {{$prueba->created_at}}</p>
                 </div>
                 <div class="m-4">
-                    <label for="estado">ESTADO:</label>
-                    <label for="surname"> {{$prueba->ESTADO}} </label>
+                    <p for="estado">ESTADO: {{$prueba->ESTADO}}</p>
                 </div>
             </div>
             <div class="opacity-80 h-px mt-4 md:mb-4" style="background: linear-gradient(to right, rgba(200, 200, 200, 0) 0%, rgba(200, 200, 200, 1) 30%, rgba(200, 200, 200, 1) 70%, rgba(200, 200, 200, 0) 100%);"></div>

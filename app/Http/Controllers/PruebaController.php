@@ -28,18 +28,27 @@ class PruebaController extends Controller
 
     public function insertar(Request $formulario, string $id)
     {
-        // comprobar cuantos tamizajes tiene el usuario
+        // Obtener el paciente
+        $paciente = Pacient::findOrFail($id);
 
-        //buscar al paciente y las primeras pruebas
+        // Verificar si existe una prueba previa
+        $pruebaPrevia = $paciente->pruebas()->latest()->first();
 
-        //$fecha = Carbon::parse($registro->created_at)
+        if ($pruebaPrevia) {
+            // Calcular la diferencia en días desde la última prueba
+            $diferenciaDias = now()->diffInDays($pruebaPrevia->created_at);
 
-        //$tamizajes_totales = Prueba::where('pacient_id','=',$id)->get();
+            // Verificar si han pasado al menos 15 días desde la última prueba
+            if ($diferenciaDias < 15) {
+                return redirect()->back()->with('error', 'Debe esperar al menos 15 días antes de realizar un nuevo tamizaje.');
+            }
+        }
 
+        // Crear la nueva prueba
         $nueva_prueba = new Prueba;
-        $nueva_prueba->pacient()->associate(Pacient::where('id', '=', $id)->first());
-        $nueva_prueba->tamizaje()->associate(Tamizaje::where('id', '=', $formulario->input('tamizaje'))->first());
-        $nueva_prueba->user()->associate(User::where('id', '=', Auth::user()->id)->first());
+        $nueva_prueba->pacient()->associate($paciente);
+        $nueva_prueba->tamizaje()->associate(Tamizaje::findOrFail($formulario->input('tamizaje')));
+        $nueva_prueba->user()->associate(User::findOrFail(Auth::user()->id));
         $nueva_prueba->ESTADO =  $formulario->input('estado');
         $nueva_prueba->LUGAR = $formulario->input('lugar');
 
@@ -49,7 +58,7 @@ class PruebaController extends Controller
 
         $nueva_prueba->save();
 
-        return redirect()->back();
+        return redirect()->back()->with('success', 'Prueba registrada exitosamente.');
     }
 
 
@@ -117,38 +126,49 @@ class PruebaController extends Controller
         $ninos = Pacient::all()->where('TIPO', 'INFANTE')->count();
         $filtro = 'none';
 
-        return view('reporte', compact(         'tipo1','tipo1NAME', 
-                                                'tipo2','tipo2NAME',
-                                                'tipo3','tipo3NAME',
-                                                'tipo4','tipo4NAME',
-                                                'tipo5','tipo5NAME',
-                                                'tipo6','tipo6NAME',
-                                                'tipo7','tipo7NAME',
-                                                'tipo8','tipo8NAME',
-                                                'adultos','adolecentes', 'gestantes', 'ninos','filtro'
-                                            ));
+        return view('reporte', compact(
+            'tipo1',
+            'tipo1NAME',
+            'tipo2',
+            'tipo2NAME',
+            'tipo3',
+            'tipo3NAME',
+            'tipo4',
+            'tipo4NAME',
+            'tipo5',
+            'tipo5NAME',
+            'tipo6',
+            'tipo6NAME',
+            'tipo7',
+            'tipo7NAME',
+            'tipo8',
+            'tipo8NAME',
+            'adultos',
+            'adolecentes',
+            'gestantes',
+            'ninos',
+            'filtro'
+        ));
     }
 
     public function update(Request $request, $id)
     {
-    // Validar los datos del formulario
-    $request->validate([
-        'tamizaje_id' => 'required',
-        'estado' => 'required',
-        'lugar' => 'required',
-    ]);
+        // Validar los datos del formulario
+        $request->validate([
+            'tamizaje_id' => 'required',
+            'estado' => 'required',
+            'lugar' => 'required',
+        ]);
 
-    // Actualizar los datos de la prueba
-    $prueba = Prueba::findOrFail($id);
-    $prueba->tamizaje_id = $request->input('tamizaje_id');
-    $prueba->ESTADO = $request->input('estado');
-    $prueba->LUGAR = $request->input('lugar');
-    
-    $prueba->save();
+        // Actualizar los datos de la prueba
+        $prueba = Prueba::findOrFail($id);
+        $prueba->tamizaje_id = $request->input('tamizaje_id');
+        $prueba->ESTADO = $request->input('estado');
+        $prueba->LUGAR = $request->input('lugar');
 
-    // Redirigir o responder según sea necesario
-    return redirect()->back()->with('success', 'Prueba actualizada correctamente.');
+        $prueba->save();
+
+        // Redirigir o responder según sea necesario
+        return redirect()->back()->with('success', 'Prueba actualizada correctamente.');
     }
-
-    
 }

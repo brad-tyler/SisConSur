@@ -63,15 +63,21 @@
                     </div>
                 </td>
                 <td class="h-[50px] justify-center text-center">
-
-
-                    @if($paciente->pruebas->count() >= 4)
-                    <button class="bg-red-500 hover:bg-red-700 text-white font-bold py-1 px-4 rounded mx-4">TAMIZAJES COMPLETOS</button>
+                    @php
+                        $ultimaPrueba = $paciente->pruebas->last();
+                        $diferenciaDias = $ultimaPrueba ? now()->diffInDays($ultimaPrueba->created_at) : null;
+                    @endphp
+                
+                    @if ($paciente->pruebas->count() < 4 && $ultimaPrueba && $diferenciaDias < 15)
+                        <span class="text-red-500 font-bold mx-4">Debe esperar {{ 15 - $diferenciaDias }} días para el próximo tamizaje.</span>
                     @else
-                    @livewire('modal-prueba',['paciente' => $paciente->id , 'name' => $paciente->NAME])
+                        @if ($paciente->pruebas->count() >= 4)
+                            <button class="bg-red-500 hover:bg-red-700 text-white font-bold py-1 px-4 rounded mx-4">TAMIZAJES COMPLETOS</button>
+                        @else
+                            @livewire('modal-prueba', ['paciente' => $paciente->id, 'name' => $paciente->NAME])
+                        @endif
                     @endif
-
-                </td>
+                </td>                
             </tr>
             @endforeach
         </tbody>
@@ -80,55 +86,3 @@
     {{ $pacientes->links() }}
     </div>
 </div>
-
-
-{{-- <script>
-    $(document).ready(function() {
-        $('.abrir-modal').on('click', function() {
-
-            //console.log("Modal abierto");
-            var id = $(this).data('id');
-
-
-            // Ejemplo de solicitud AJAX utilizando jQuery
-            $.ajax({
-                url: '/detallestamizaje/' + id,
-                method: 'GET',
-                success: function(response) {
-                    //console.log(response);
-                    $('#miModal #Paciente').text('Paciente: ' + response.paciente);
-                    $('#miModal #Doctor').text('Doctor: ' + response.doctor);
-                    $('#miModal #Fecha').text('Fecha de Tamizaje: ' + response.fecha);
-                    $('#miModal #Estado').text('Estado: ' + response.estado);
-                },
-                error: function(xhr, status, error) {
-                    console.error(error);
-                }
-            });
-        });
-    }); --}}
-
-
-{{--
-    //GPT 4
-    document.getElementById('buscador').addEventListener('input', function() {
-        var input = this.value.toLowerCase();
-        var rows = document.querySelectorAll('tbody tr');
-
-        rows.forEach(function(row) {
-            var match = false;
-            row.querySelectorAll('td').forEach(function(cell) {
-                var content = cell.textContent.toLowerCase();
-                if (content.indexOf(input) !== -1) {
-                    match = true;
-                }
-            });
-            if (match) {
-                row.style.display = '';
-            } else {
-                row.style.display = 'none';
-            }
-        });
-    });
-</script>
---}}

@@ -1,6 +1,6 @@
 <x-guest-layout>
-    <div class="grid grid-cols-3">
-        <x-authentication-card class="col-span-1">
+    <div class="flex items-center justify-center md:justify-start bg-cover" style="background-image: url('logo-derecha.jpg')">
+        <x-authentication-card class="flex items-center justify-center">
             <x-slot name="logo">
                 <x-authentication-card-logo />
             </x-slot>
@@ -49,7 +49,7 @@
                 </div>
             </form>
         </x-authentication-card>
-        <img src="logo-derecha.jpg" alt="" class="col-span-2 h-full opacity-95">
+        {{-- <img src="logo-derecha.jpg" alt="" class="col-span-2 h-full opacity-95"> --}}
     </div>
 
 </x-guest-layout>
