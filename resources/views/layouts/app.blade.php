@@ -100,8 +100,6 @@
                     paginate: {
                         // first: '<button class="px-3 py-1 bg-blue-500 text-white rounded-md hover:bg-blue-700">«</button>',
                         // last: '<button class="px-3 py-1 bg-blue-500 text-white rounded-md hover:bg-blue-700">»</button>',
-                        // next: '<button class="px-3 py-1 bg-blue-500 text-white rounded-md hover:bg-blue-700">›</button>',
-                        // previous: '<button class="px-3 py-1 bg-blue-500 text-white rounded-md hover:bg-blue-700">‹</button>',
                         dom: {
                             paginate: {
                                 className: 'p-2 text-xl text-white bg-blue-500 hover:bg-blue-700 my-2'
