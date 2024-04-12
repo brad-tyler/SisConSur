@@ -13,7 +13,4 @@ class AdminController extends Controller
     {
         return view('admin.index');
     }
-    public function export(){
-        return Excel::download(new PruebasExport, 'Pruebas.xlsx');
-    }
 }

@@ -58,7 +58,7 @@ Route::middleware([
     Route::post('/registrar-doctor', [Controller::class, 'registrardoctor'])->name('registrardoctor')->middleware('role:admin');
 
     Route::get('/admin.index', [AdminController::class, 'index'])->name('admin.index')->middleware('role:admin');
-    Route::get('/admin.index/export', [AdminController::class, 'export'])->name('export')->middleware('role:admin');
+    //Route::get('/admin.index/export', [AdminController::class, 'export'])->name('export')->middleware('role:admin');
 
     Route::get('cambiar-estado/{id}', [Controller::class, 'cambiarEstado'])->name('cambiar_estado')->middleware('role:admin');
 
