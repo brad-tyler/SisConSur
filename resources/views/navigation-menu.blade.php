@@ -33,7 +33,7 @@
 
                     @role('admin')
                     <x-nav-link href="{{ route('admin.index') }}" :active="request()->routeIs('admin.index')">
-                        {{ __('Reporte Admin') }}
+                        {{ __('Reportes del administrador') }}
                     </x-nav-link>
 
                     <x-nav-link href="{{ route('doctores') }}" :active="request()->routeIs('doctores')">

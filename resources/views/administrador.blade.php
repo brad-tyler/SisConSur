@@ -15,8 +15,8 @@
                     <tr class="text-left">
                         <th scope="col" class="px-[1.2rem] py-2">ID</th>
                         <th scope="col" class="px-1 py-2">NOMBRES</th>
-                        <th scope="col" class="px-1 py-2">GMAIL</th>                        
-                        <th scope="col" class="px-1 py-2">ACCIONES</th>                        
+                        <th scope="col" class="px-1 py-2">GMAIL</th>
+                        <th scope="col" class="px-1 py-2">ACCIONES</th>
                     </tr>
                 </thead>
                 <tbody>
@@ -25,7 +25,7 @@
                     <tr id="{{ $doctor->id }}" class="border-b border-gray-700 hover:bg-slate-100 text-left">
                         <td scope="row" class="px-4 text-gray-700">{{ $doctor->id }}</td>
                         <td class="py-2">{{ $doctor->name }}</td>
-                        <td class="py-2">{{ $doctor->email }}</td>                        
+                        <td class="py-2">{{ $doctor->email }}</td>
                         <td class="py-2">
                             <label class="inline-flex items-center cursor-pointer">
                                 <input type="checkbox" value="" class="sr-only peer" id="{{ $doctor->id }}" {{ $doctor->estado ? 'checked' : '' }}>
@@ -40,7 +40,7 @@
 
 
                             </label>
-                        </td>                        
+                        </td>
                     </tr>
                     @endif
                     @endforeach

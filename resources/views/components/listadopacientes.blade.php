@@ -2,7 +2,7 @@
 
     <!--BUSCADOR EN TIEMPO REAL Y CONSULTANDO A LA BASE DE DATOS-->
 
-    <div class="overflow-scroll flex justify-between mb-4">
+    <div class="flex justify-between mb-4">
         @livewire('modal-crear')
 
         <div class="flex">
