@@ -92,7 +92,7 @@
                     buttons: ['excel', 'pdf', 'print'],
                     dom: {
                         button: {
-                            className: 'p-2 text-xl text-white bg-blue-500 hover:bg-blue-700 my-2'
+                            className: 'px-2 py-1 text-xl text-white bg-blue-500 hover:bg-blue-700 my-2 rounded'
                         }
                     }
                 },

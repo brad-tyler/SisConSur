@@ -2,9 +2,9 @@
     {{-- <x-application-logo class="block h-12 w-auto" /> --}}
     {{-- <h2>lo puse en la misma raiz veamos q pasa :v </h2> --}}
 
-    <input type="text" id="fecha_inicio" placeholder="Fecha de inicio">
-    <input type="text" id="fecha_fin" placeholder="Fecha de fin">
-    <button id="filtrar" class="text-white bg-green-500 hover:bg-green-700 p-2">Filtrar</button>
+    <input type="text" id="fecha_inicio" placeholder="Fecha de inicio" class="rounded">
+    <input type="text" id="fecha_fin" placeholder="Fecha de fin" class="rounded">
+    <button id="filtrar" class="text-white bg-green-500 hover:bg-green-700 p-2 rounded">Filtrar</button>
 
 
 
