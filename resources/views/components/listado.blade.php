@@ -32,7 +32,10 @@
                 <td class="py-2">{{ $prueba->pacient->SEXO }}</td>
                 <td class="py-2">{{ $prueba->tamizaje->NAME }}</td>
                 <td class="py-2">{{ $prueba->user->name }}</td>
-                <td class="py-2">{{ $prueba->created_at }}</td>
+                <!-- Mostrando solo fecha de creacion, sin hora -->
+                @php $fecha_sin_hora = date("Y-m-d", strtotime($prueba->created_at)); @endphp
+                <td class="py-2">{{ $fecha_sin_hora }}</td>
+
             </tr>
             @endforeach
         </tbody>
