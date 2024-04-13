@@ -116,12 +116,21 @@
             });
 
             $('#filtrar').on('click', function() {
-                // Obtener las fechas de inicio y fin ingresadas por el usuario
-                var fechaInicio = $('#fecha_inicio').val();
-                var fechaFin = $('#fecha_fin').val();
-                // Aplicar el filtrado por fechas al DataTable
-                table.column(6).search(fechaInicio + '|' + fechaFin, true, false).draw();
+                // Obtener las fechas de inicio y fin
+                var fechaInicio = new Date($('#fecha_inicio').val());
+                var fechaFin = new Date($('#fecha_fin').val());
+
+                // Aplicar el filtrado por rango de fechas al DataTable
+                table.column(6).search(function(data) {
+                    // Convertir la fecha en la columna a un objeto Date
+                    var fecha = new Date(data);
+
+                    // Verificar si la fecha está dentro del rango especificado
+                    return fecha >= fechaInicio && fecha <= fechaFin;
+                }).draw();
             });
+
+
             new $.fn.dataTable.Buttons(table, {
                 buttons: [{
                     extend: 'pdfHtml5',
