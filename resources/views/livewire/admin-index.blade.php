@@ -10,10 +10,10 @@
                 <input type="date" name="fecha_inicio" id="fecha_inicio">
                 <label for="fecha_fin">Fecha de fin:</label>
                 <input type="date" name="fecha_fin" id="fecha_fin">
-                <button type="submit" class="bg-blue-500 px-2 py-1 rounded mb-2 text-white mr-10">Exportar</button>
+                <button type="submit" class="bg-blue-500 px-2 py-1 rounded mb-2 text-white mr-10" id="filtrar">Exportar</button>
             </form>
         </div>
-        
+
         <div class="mx-8">
             <x-listado :pruebas="$pruebas" class="mx-8" />
         </div>
