@@ -2,11 +2,9 @@
     {{-- <x-application-logo class="block h-12 w-auto" /> --}}
     {{-- <h2>lo puse en la misma raiz veamos q pasa :v </h2> --}}
 
-    <input type="text" id="fecha_inicio" placeholder="Fecha de inicio" class="rounded">
+    {{-- <input type="text" id="fecha_inicio" placeholder="Fecha de inicio" class="rounded">
     <input type="text" id="fecha_fin" placeholder="Fecha de fin" class="rounded">
-    <button id="filtrar" class="text-white bg-green-500 hover:bg-green-700 p-2 rounded">Filtrar</button>
-
-
+    <button id="filtrar" class="text-white bg-green-500 hover:bg-green-700 p-2 rounded">Filtrar</button> --}}
 
     <table id="excel" class="table-fixed min-w-full text-sm text-left text-gray-800">
         <thead class="text-s uppercase border-b bg-gray-700 rounded text-white font-bold">
@@ -41,9 +39,8 @@
         </tbody>
     </table>
     <br>
-    <div id="paginationContainer" class="flex items-center justify-between bg-red-100">
-        <!-- Contenido de la paginación aquí -->
+    <div id="paginationContainer" class="items-center justify-between bg-gray-100">
+        {{ $pruebas->links() }}
     </div>
-    <!-- {{ $pruebas->links() }} -->
 
 </div>

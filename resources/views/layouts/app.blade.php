@@ -84,7 +84,7 @@
 
     @livewireScripts
 
-    <script>
+    {{-- <script>
         $(document).ready(function() {
             var table = $('#excel').DataTable({
                 dom: "<'flex items-center justify-between'lBf>rtip",
@@ -150,7 +150,7 @@
                 elemento.classList.add('text-black', 'text-sm', 'p-2', 'flex', 'flex-row', 'justify-end', 'space-x-2', '[&>button]:border-2', '[&>button]:p-1');
             });
         });
-    </script>
+    </script> --}}
 
 </body>
 

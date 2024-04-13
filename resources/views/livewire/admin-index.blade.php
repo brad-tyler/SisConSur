@@ -4,8 +4,16 @@
     <div class="p-6 lg:p-8 bg-white border-b border-gray-200">
         <div class="flex justify-between border-b-4 border-gray-500 mx-8 my-5">
             <h1 class="text-2xl ">LISTADO DE PRUEBAS </h1>
-
+            {{-- <a href=" {{ route('export' )}} " class="bg-blue-500 px-2 py-1 rounded mb-2 text-white mr-10">Exportar</a> --}}
+            <form action="{{ route('export') }}" method="GET">
+                <label for="fecha_inicio">Fecha de inicio:</label>
+                <input type="date" name="fecha_inicio" id="fecha_inicio">
+                <label for="fecha_fin">Fecha de fin:</label>
+                <input type="date" name="fecha_fin" id="fecha_fin">
+                <button type="submit" class="bg-blue-500 px-2 py-1 rounded mb-2 text-white mr-10">Exportar</button>
+            </form>
         </div>
+        
         <div class="mx-8">
             <x-listado :pruebas="$pruebas" class="mx-8" />
         </div>
