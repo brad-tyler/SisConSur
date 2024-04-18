@@ -1,8 +1,13 @@
 <x-app-layout>
     <x-slot name="header">
-        <h2 class="font-semibold text-xl text-gray-800 leading-tight">
-            {{ __('Listado de registros') }}
-        </h2>
+        <div class="flex justify-between">
+            <h2 class="font-semibold text-xl text-gray-800 leading-tight">
+                {{ __('Listado de registros') }}
+            </h2>
+            @role('admin')
+            <a href=" {{ route('exportPacients' )}} " class="bg-blue-500 px-2 py-1 rounded mb-2 text-white">Exportar Pacientes</a>
+            @endrole
+        </div>
     </x-slot>
 
     <div class="py-12">

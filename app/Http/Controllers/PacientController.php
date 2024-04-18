@@ -50,10 +50,17 @@ class PacientController extends Controller
     public function store(Request $request)
     {
         // Validar los datos del formulario si es necesario
-
         $datosPaciente = $request->only(['dni', 'name', 'surname', 'edad', 'tipo', 'sexo']); // Obtener solo los datos necesarios del formulario
-        Pacient::create($datosPaciente); // Insertar los datos en la BD
-        return redirect()->route("dashboard");
+        
+        if(Pacient::where('dni', $request->input('dni'))->first()){
+            $pacientes = Pacient::where('dni', $request->input('dni'))->paginate(1);
+            // $pacientes = Pacient::all();
+            $filtro = 'none';
+            return view("dashboard", compact('pacientes', 'filtro', 'alerta'));
+        }else{
+            Pacient::create($datosPaciente); // Insertar los datos en la BD
+            return redirect()->route("dashboard", compact('alerta'));
+        }
 
     }
 

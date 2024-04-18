@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Exports\PacientsExport;
 use App\Exports\PruebasExport;
 use App\Models\Prueba;
 use Carbon\Carbon;
@@ -31,5 +32,8 @@ class AdminController extends Controller
         }
     
         return Excel::download(new PruebasExport($datos), 'pruebas.xlsx');
+    }
+    public function exportPacients(){          
+        return Excel::download(new PacientsExport, 'pacients.xlsx');
     }
 }
