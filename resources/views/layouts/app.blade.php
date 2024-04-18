@@ -152,6 +152,31 @@
         });
     </script> --}}
 
+    <script>
+        $(document).ready(function() {
+            var table = $('#excel').DataTable({
+                dom: "<'flex items-center justify-between'>",
+            });
+
+
+            $('#filtrar').on('click', function() {
+                // Obtener las fechas de inicio y fin
+                var fechaInicio = new Date($('#fecha_inicio').val());
+                var fechaFin = new Date($('#fecha_fin').val());
+
+                // Aplicar el filtrado por rango de fechas al DataTable
+                table.column(6).search(function(data) {
+                    // Convertir la fecha en la columna a un objeto Date
+                    var fecha = new Date(data);
+
+                    // Verificar si la fecha está dentro del rango especificado
+                    return fecha >= fechaInicio && fecha <= fechaFin;
+                }).draw();
+            });
+        });
+    </script>
+
+
 </body>
 
 </html>
