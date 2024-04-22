@@ -29,6 +29,9 @@ return new class extends Migration
             $table->unsignedBigInteger('user_id')->nullable();
             $table->foreign('user_id')->references('id')->on('users')->onDelete('set null');
 
+            $table->integer('EDAD')->nullable(false);
+            $table->string('TIPO')->nullable(false);
+
             $table->boolean('ESTADO')->nullable(false);
             $table->string('LUGAR')->nullable(false);
 

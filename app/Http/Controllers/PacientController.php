@@ -27,14 +27,13 @@ class PacientController extends Controller
         $pacientes = Pacient::where(function ($q) use ($query) {
             $q->where('NAME', 'like', "%$query%")
             ->orWhere('SURNAME', 'like', "%$query%")
-            ->orWhere('DNI', 'like', "%$query%")
-            ->orWhere('TIPO', 'like', "%$query%");
+            ->orWhere('DNI', 'like', "%$query%");
         })->paginate();
 
-        $adultos = Pacient::all()->where('TIPO', 'ADULTO')->count();
-        $adolecentes = Pacient::all()->where('TIPO', 'ADOLECENTE')->count();
-        $gestantes = Pacient::all()->where('TIPO', 'GESTANTE')->count();
-        $ninos = Pacient::all()->where('TIPO', 'INFANTE')->count();
+        $adultos = Prueba::all()->where('TIPO', 'ADULTO')->count();
+        $adolecentes = Prueba::all()->where('TIPO', 'ADOLECENTE')->count();
+        $gestantes = Prueba::all()->where('TIPO', 'GESTANTE')->count();
+        $ninos = Prueba::all()->where('TIPO', 'INFANTE')->count();
 
         $filtro = 'inline';
         
@@ -50,7 +49,7 @@ class PacientController extends Controller
     public function store(Request $request)
     {
         // Validar los datos del formulario si es necesario
-        $datosPaciente = $request->only(['dni', 'name', 'surname', 'edad', 'tipo', 'sexo']); // Obtener solo los datos necesarios del formulario
+        $datosPaciente = $request->only(['dni', 'name', 'surname', 'sexo']); // Obtener solo los datos necesarios del formulario
         
         if(Pacient::where('dni', $request->input('dni'))->first()){
             $pacientes = Pacient::where('dni', $request->input('dni'))->paginate(1);
@@ -68,10 +67,10 @@ class PacientController extends Controller
     public function mostrar_reporte(Request $request)
     {
         // Validar los datos del formulario si es necesario
-        $adultos = Pacient::all()->where('TIPO', 'ADULTO')->count();
-        $adolecentes = Pacient::all()->where('TIPO', 'ADOLECENTE')->count();
-        $gestantes = Pacient::all()->where('TIPO', 'GESTANTE')->count();
-        $ninos = Pacient::all()->where('TIPO', 'INFANTE')->count();
+        $adultos = Prueba::all()->where('TIPO', 'ADULTO')->count();
+        $adolecentes = Prueba::all()->where('TIPO', 'ADOLECENTE')->count();
+        $gestantes = Prueba::all()->where('TIPO', 'GESTANTE')->count();
+        $ninos = Prueba::all()->where('TIPO', 'INFANTE')->count();
         $filtro = 'none';
 
         return view('reporte', compact('adultos','adolecentes', 'gestantes', 'ninos','filtro'));

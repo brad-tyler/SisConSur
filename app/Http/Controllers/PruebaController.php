@@ -51,6 +51,8 @@ class PruebaController extends Controller
         $nueva_prueba->user()->associate(User::findOrFail(Auth::user()->id));
         $nueva_prueba->ESTADO =  $formulario->input('estado');
         $nueva_prueba->LUGAR = $formulario->input('lugar');
+        $nueva_prueba->EDAD =  $formulario->input('edad');
+        $nueva_prueba->TIPO = $formulario->input('tipo');
 
         $now = Carbon::now();
         $nueva_prueba->created_at = $now;

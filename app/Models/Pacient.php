@@ -9,7 +9,7 @@ class Pacient extends Model
 {
     use HasFactory;
 
-    protected $fillable = ['dni', 'name', 'surname', 'edad', 'tipo', 'sexo'];
+    protected $fillable = ['dni', 'name', 'surname', 'sexo'];
     
     public function pruebas()
     {

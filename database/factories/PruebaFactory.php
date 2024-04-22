@@ -33,6 +33,8 @@ class PruebaFactory extends Factory
             'user_id' =>$user->id,
             'ESTADO'=> $this->faker->randomElement([true,false]),
             'LUGAR' => $this->faker->text(),
+            'EDAD'=> $this->faker->randomNumber(),
+            'TIPO'=> $this->faker->randomElement(['ADOLECENTE','GESTANTE','ADULTO','INFANTE']),
         ];
     }
 }

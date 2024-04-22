@@ -21,8 +21,6 @@ class PacientFactory extends Factory
             'DNI'=> $this->faker->unique()->randomNumber(8),
             'NAME' => fake()->name(),
             'SURNAME'=> $this->faker->text(),
-            'EDAD'=> $this->faker->randomNumber(),
-            'TIPO'=> $this->faker->randomElement(['ADOLECENTE','GESTANTE','ADULTO','INFANTE']),
             'SEXO'=> $this->faker->randomElement(['M','F']),
         ];
     }

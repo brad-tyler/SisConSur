@@ -14,10 +14,10 @@ class AdminIndex extends Component
     public function render()
     {
         $pacientes = Pacient::orderBy('id', 'DESC')->paginate(); // Obtiene los datos de la base de datos mediante el modelo
-        $adultos = Pacient::all()->where('TIPO', 'ADULTO')->count();
-        $adolecentes = Pacient::all()->where('TIPO', 'ADOLECENTE')->count();
-        $gestantes = Pacient::all()->where('TIPO', 'GESTANTE')->count();
-        $ninos = Pacient::all()->where('TIPO', 'INFANTE')->count();
+        $adultos = Prueba::all()->where('TIPO', 'ADULTO')->count();
+        $adolecentes = Prueba::all()->where('TIPO', 'ADOLECENTE')->count();
+        $gestantes = Prueba::all()->where('TIPO', 'GESTANTE')->count();
+        $ninos = Prueba::all()->where('TIPO', 'INFANTE')->count();
         $filtro = 'none';
         $usuarios = User::orderBy('id', 'DESC')->paginate();
         $usercount = User::all(); //->count();       //para obtener los usuarios

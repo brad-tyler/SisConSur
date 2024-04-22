@@ -17,8 +17,6 @@ return new class extends Migration
             $table->string('DNI',8)->nullable(false)->unique();
             $table->string('NAME')->nullable(false);
             $table->string('SURNAME')->nullable(false);
-            $table->integer('EDAD')->nullable(false);
-            $table->string('TIPO')->nullable(false);
             $table->char('SEXO',1)->nullable(false);
         });
     }
